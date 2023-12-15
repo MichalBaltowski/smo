@@ -1,0 +1,2 @@
+# smo
+Sport Meeting Organizer
