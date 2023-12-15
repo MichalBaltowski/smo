@@ -1,1 +1,4 @@
+pl\playwithme\smo\DBEntity\User.class
 pl\playwithme\smo\SmoApplication.class
+pl\playwithme\smo\UserController.class
+pl\playwithme\smo\Database\DBRepository.class
