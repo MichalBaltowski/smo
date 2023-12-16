@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.playwithme.smo.DBEntity.User;
+import pl.playwithme.smo.LoginRequest;
 
 import java.util.List;
 
@@ -82,5 +83,28 @@ public class DBRepository {
         } catch (Exception exception) {
             return null;
         }
+    }
+
+    private User searchUserByName(String name) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM user WHERE name = ?",
+                    BeanPropertyRowMapper.newInstance(User.class), name);
+        } catch (Exception exception) {
+            return null;
+        }
+    }
+
+    public ResponseEntity login(LoginRequest loginRequest) {
+        var user = searchUserByName(loginRequest.getLogin());
+        if (user != null) {
+            if (user.getPassword().equals(loginRequest.getPassword())) {
+                return ResponseEntity.ok("Zalogowano pomyślnie");
+            } else {
+                return new ResponseEntity("Nieprawidłowe hasło", HttpStatus.FORBIDDEN);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 }

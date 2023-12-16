@@ -70,18 +70,25 @@
             // Pobierz dane z formularza
             var loginForm = document.getElementById('loginFormElement');
             var formData = new FormData(loginForm);
+			
+			// Utwórz obiekt z danymi
+			var loginData = {
+				login: formData.get('login'),
+				password: formData.get('password')
+			};
 
             // Wyślij żądanie HTTP POST do serwera
-            fetch('http://localhost:8080/login', {
+            fetch('http://localhost:8080/user/login', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json'
                 },
-                body: new URLSearchParams(formData)
+                body: JSON.stringify(loginData)
             })
             .then(response => {
                 if (response.ok) {
                     console.log('Zalogowano pomyślnie!');
+					window.location.href = 'website.html';
                 } else {
                     console.error('Błąd logowania.');
                 }
