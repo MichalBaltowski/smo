@@ -4,97 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        #logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        #loginForm {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-        }
-
-        #loginForm input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        #loginButton {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        #loginButton:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="logo">PlayWithMe</div>
-    <div id="loginForm">
-        <form id="loginFormElement">
+    <div class="logo">PlayWithMe</div>
+    <div class="loginForm">
+        <form class="loginFormElement">
             <input type="text" placeholder="Login" name="login" required>
             <input type="password" placeholder="Password" name="password" required>
-            <button type="button" id="loginButton">Login</button>
+            <button type="button" class="loginButton">Login</button>
         </form>
     </div>
 
-    <script>
-        document.getElementById('loginButton').addEventListener('click', function() {
-            // Pobierz dane z formularza
-            var loginForm = document.getElementById('loginFormElement');
-            var formData = new FormData(loginForm);
-			
-			// Utwórz obiekt z danymi
-			var loginData = {
-				login: formData.get('login'),
-				password: formData.get('password')
-			};
-
-            // Wyślij żądanie HTTP POST do serwera
-            fetch('http://localhost:8080/user/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(loginData)
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Zalogowano pomyślnie!');
-					window.location.href = 'website.html';
-                } else {
-                    console.error('Błąd logowania.');
-                }
-            })
-            .catch(error => console.error('Błąd sieci:', error));
-        });
-    </script>
+    <script src="script/login.js"></script>
 </body>
 </html>
