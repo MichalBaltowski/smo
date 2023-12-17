@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetWithMe</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        #header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            font-size: 36px;
+        }
+
+        #buttons-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 15px;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        #calendar {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        #calendar th,
+        #calendar td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        #calendar th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>MeetWithMe</h1>
+</div>
+
+<div id="buttons-container">
+    <button class="button" onclick="openMainPage()">Menu</button>
+</div>
+
+<table id="calendar">
+    <thead>
+        <tr>
+            <th>Pon</th>
+            <th>Wt</th>
+            <th>Śr</th>
+            <th>Czw</th>
+            <th>Pt</th>
+            <th>Sob</th>
+            <th>Nd</th>
+        </tr>
+    </thead>
+    <tbody id="calendar-body">
+        <!-- Tutaj wstawimy dni kalendarza dynamicznie za pomocą JavaScript -->
+    </tbody>
+</table>
+
+<script>
+    function openMainPage() {
+        // Przekieruj do strony mainPage.html
+        window.location.href = 'mainPage.html';
+    }
+
+    // Inicjalizacja kalendarza
+    function initCalendar() {
+        var currentDate = new Date();
+        var firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+        var daysInMonth = lastDay.getDate();
+        var startingDay = firstDay.getDay(); // Dzień tygodnia, w którym zaczyna się miesiąc
+
+        var calendarBody = document.getElementById("calendar-body");
+        var day = 1;
+
+        // Tworzenie wierszy i kolumn kalendarza
+        for (var i = 0; i < 6; i++) {
+            var row = document.createElement("tr");
+
+            // Tworzenie kolumn dla dni tygodnia
+            for (var j = 0; j < 7; j++) {
+                var cell = document.createElement("td");
+                if (i === 0 && j < startingDay) {
+                    // Puste komórki przed pierwszym dniem
+                    cell.textContent = "";
+                } else if (day > daysInMonth) {
+                    // Puste komórki po ostatnim dniu
+                    cell.textContent = "";
+                } else {
+                    cell.textContent = day;
+                    day++;
+                }
+                row.appendChild(cell);
+            }
+
+            calendarBody.appendChild(row);
+        }
+    }
+
+    // Wywołanie funkcji inicjalizacji kalendarza po załadowaniu strony
+    window.onload = function () {
+        initCalendar();
+    };
+</script>
+
+</body>
+</html>
