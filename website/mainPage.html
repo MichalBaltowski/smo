@@ -4,73 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MeetWithMe</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
+	
+    <!-- Wspólne style -->
+	<link rel="stylesheet" href="styles/common/common.css">
 
-        #header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            font-size: 36px;
-        }
-
-        #buttons-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .button {
-            display: block;
-            width: 200px;
-            margin: 10px auto;
-            padding: 15px;
-            font-size: 20px;
-            text-align: center;
-            text-decoration: none;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
+	<!-- Style strony logowania -->
+    <link rel="stylesheet" href="styles/mainPage/mainPage.css">
 </head>
 <body>
-
-<div id="header">
-    <h1>MeetWithMe</h1>
-</div>
-
-<div id="buttons-container">
-    <button class="button" onclick="showCalendar()">Kalendarz</button>
-    <button class="button" onclick="showSettings()">Ustawienia</button>
-	<button class="button" onclick="logOut()">Wyloguj</button>
-</div>
-
-<script>
-    function showCalendar() {
-        window.location.href = 'calendarPage.html';
-    }
-
-    function showSettings() {
-        window.location.href = 'settingsPage.html';
-    }
+	<div class="logo">MeetWithMe</div>
+	<div class="buttons-container">
+		<button class="button" onclick="showCalendar()">Kalendarz</button>
+		<button class="button" onclick="showSettings()">Ustawienia</button>
+		<button class="button" onclick="logOut()">Wyloguj</button>
+	</div>
 	
-	function logOut() {
-		window.location.href = 'loginPage.html';
-	}
-</script>
-
+	<script src="script/mainPage/mainPage.js"></script>
 </body>
 </html>
