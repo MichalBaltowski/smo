@@ -1,29 +1,75 @@
-.buttons-container {
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.main-container {
+    text-align: center;
+    width: 80%; /* Dostosuj szerokość według potrzeb */
+    margin: 0 auto; /* Ustawienie marginesów na auto, aby centrować */
+}
+
+.button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.settings-container {
+	width: 80%; /* Dostosuj szerokość według potrzeb */
+    margin: 0 auto; /* Ustawienie marginesów na auto, aby centrować */
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
-}
-
-.buttons-container {
-    text-align: center;
     margin-top: 20px;
 }
 
-.button {
-    display: block;
-    width: 200px;
-    margin: 10px auto;
-    padding: 15px;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.input-container {
+	margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+	flex-direction: row; /* Ustawienie na poziomie */
+	align-items: center; /* Wyrównanie w pionie */
+}
+
+.settings-container label {
+	width: 15%; /* Dostosuj szerokość etykiety */
+	margin-left: 10%;
+	text-align: left; /* Wyrównanie tekstu do lewej strony */
+}
+
+.settings-container input[type="text"] {
+    width: 30%; /* Dostosuj szerokość etykiety */
+	margin-left: 10%;
+    padding: 10px; /* Wewnętrzny odstęp tekstu od krawędzi */
+    box-sizing: border-box; /* Wliczanie paddingu i bordera do całkowitej szerokości/height */
+    border: 1px solid #ccc; /* Grubość i kolor obramowania */
+    border-radius: 4px; /* Zaokrąglenie rogów */
+}
+
+.settings-container input[type="submit"] {
+	width: 10%; /* Dostosuj szerokość etykiety */
+	margin-left: 20%;
+    background-color: #4caf50; /* Kolor tła przycisku */
+    color: white; /* Kolor tekstu przycisku */
+    padding: 10px; /* Wewnętrzny odstęp tekstu od krawędzi przycisku */
+    border: none; /* Brak obramowania przycisku */
+    border-radius: 4px; /* Zaokrąglenie rogów przycisku */
+    cursor: pointer; /* Zmiana kursora po najechaniu na przycisk */
+}
+
+.settings-container input[type="submit"]:hover {
+    background-color: #45a049;
 }

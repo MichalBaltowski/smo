@@ -13,12 +13,24 @@
 </head>
 <body>
 	<div class="logo">MeetWithMe</div>
-		<div class="buttons-container">
+		<div class="main-container">
 			<button class="button" onclick="openMainPage()">Menu</button>
-			<div id="settings-container">
-				<label for="email">Twój E-mail</label>
-				<input type="text" id="email" name="email">
-				<input type="submit" value="Zapisz">
+			<div class="settings-container">
+				<div class="input-container" id="login-container">
+					<label for="login">Login</label>
+					<input type="text" id="login" name="login">
+					<input type="submit" value="Zapisz">
+				</div>
+				<div class="input-container" id="email-container">
+					<label for="email">E-mail</label>
+					<input type="text" id="email" name="email">
+					<input type="submit" value="Zapisz">
+				</div>
+				<div class="input-container" id="password-container">
+					<label for="password">Password</label>
+					<input type="text" id="password" name="password">
+					<input type="submit" value="Zapisz">
+				</div>
 			</div>
 		</div>
 		
