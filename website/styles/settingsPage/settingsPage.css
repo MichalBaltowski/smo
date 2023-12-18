@@ -46,7 +46,7 @@
 
 .settings-container label {
 	width: 15%; /* Dostosuj szerokość etykiety */
-	margin-left: 10%;
+	margin-left: 25%;
 	text-align: left; /* Wyrównanie tekstu do lewej strony */
 }
 
@@ -61,7 +61,6 @@
 
 .settings-container input[type="submit"] {
 	width: 10%; /* Dostosuj szerokość etykiety */
-	margin-left: 20%;
     background-color: #4caf50; /* Kolor tła przycisku */
     color: white; /* Kolor tekstu przycisku */
     padding: 10px; /* Wewnętrzny odstęp tekstu od krawędzi przycisku */
