@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.playwithme.smo.DBEntity.User;
 import pl.playwithme.smo.LoginRequest;
+import pl.playwithme.smo.Security.JwtGenerator;
 
 import java.util.List;
 
@@ -98,7 +99,8 @@ public class DBRepository {
         var user = searchUserByName(loginRequest.getLogin());
         if (user != null) {
             if (user.getPassword().equals(loginRequest.getPassword())) {
-                return ResponseEntity.ok("Zalogowano pomyślnie");
+                var newToken = JwtGenerator.generateJwtToken();
+                return ResponseEntity.ok(newToken);
             } else {
                 return new ResponseEntity("Nieprawidłowe hasło", HttpStatus.FORBIDDEN);
             }
