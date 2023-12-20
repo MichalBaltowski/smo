@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie';
-
 document.querySelector('.loginButton').addEventListener('click', function() {
     // Pobierz dane z formularza
     var loginForm = document.querySelector('.loginFormElement');
@@ -27,10 +25,9 @@ document.querySelector('.loginButton').addEventListener('click', function() {
         }
     })
 	.then(data => {
-		const jwt = data.token
-		Cookies.set('jwt', jwt);
+		localStorage.setItem('jwt', data.token);
 		console.log('Zalogowano pomyślnie!');
-		// window.location.href = 'mainPage.html';
+		window.location.href = 'mainPage.html';
 	})
     .catch(error => console.error('Błąd sieci:', error));
 });
