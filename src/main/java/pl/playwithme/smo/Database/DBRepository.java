@@ -100,7 +100,9 @@ public class DBRepository {
         if (user != null) {
             if (user.getPassword().equals(loginRequest.getPassword())) {
                 var newToken = JwtGenerator.generateJwtToken();
-                return ResponseEntity.ok(newToken);
+                return ResponseEntity.status(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body("{\"token\":\""+newToken+"\"}");
             } else {
                 return new ResponseEntity("Nieprawidłowe hasło", HttpStatus.FORBIDDEN);
             }

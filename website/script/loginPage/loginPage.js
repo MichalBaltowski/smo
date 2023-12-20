@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 document.querySelector('.loginButton').addEventListener('click', function() {
     // Pobierz dane z formularza
     var loginForm = document.querySelector('.loginFormElement');
@@ -19,11 +21,16 @@ document.querySelector('.loginButton').addEventListener('click', function() {
     })
     .then(response => {
         if (response.ok) {
-            console.log('Zalogowano pomyślnie!');
-            window.location.href = 'mainPage.html';
+			return response.json();
         } else {
             console.error('Błąd logowania.');
         }
     })
+	.then(data => {
+		const jwt = data.token
+		Cookies.set('jwt', jwt);
+		console.log('Zalogowano pomyślnie!');
+		// window.location.href = 'mainPage.html';
+	})
     .catch(error => console.error('Błąd sieci:', error));
 });
