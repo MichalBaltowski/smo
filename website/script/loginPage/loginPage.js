@@ -10,7 +10,7 @@ document.querySelector('.loginButton').addEventListener('click', function() {
     };
 
     // Wyślij żądanie HTTP POST do serwera
-    fetch('http://localhost:8080/user/login', {
+    fetch('http://localhost:8080/api/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ document.querySelector('.loginButton').addEventListener('click', function() {
 	.then(data => {
 		localStorage.setItem('jwt', data.token);
 		console.log('Zalogowano pomyślnie!');
-		window.location.href = 'mainPage.html';
+		window.location.href = 'http://localhost:8080/api/user/mainPage/';
 	})
     .catch(error => console.error('Błąd sieci:', error));
 });
