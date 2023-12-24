@@ -22,7 +22,10 @@ public class User {
     }
 
     @GetMapping("/settings")
-    public ResponseEntity settings() {
+    public ResponseEntity settings(@RequestHeader("Authorization") String authorizationHeader) {
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            System.out.println("otrzymany token" + authorizationHeader);
+        }
         return dbRepository.getSettings();
     }
 
