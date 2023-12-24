@@ -21,6 +21,11 @@ public class User {
         return dbRepository.getAll();
     }
 
+    @GetMapping("/settings")
+    public ResponseEntity settings() {
+        return dbRepository.getSettings();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity getById(@PathVariable("id") int id) {
         return dbRepository.getById(id);

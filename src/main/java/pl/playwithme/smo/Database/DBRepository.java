@@ -19,6 +19,14 @@ public class DBRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    public ResponseEntity<List<User>> getSettings() {
+        try {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public ResponseEntity<List<User>> getAll() {
         try {
             List<User> query = jdbcTemplate.query("SELECT * FROM user",
@@ -99,10 +107,10 @@ public class DBRepository {
         var user = searchUserByName(loginRequest.getLogin());
         if (user != null) {
             if (user.getPassword().equals(loginRequest.getPassword())) {
-                var newToken = JwtGenerator.generateJwtToken();
+                var newToken = JwtGenerator.getNewToken(user.getId());
                 return ResponseEntity.status(HttpStatus.OK)
                         .header("Content-Type", "application/json")
-                        .body("{\"token\":\""+newToken+"\"}");
+                        .body(newToken);
             } else {
                 return new ResponseEntity("Nieprawidłowe hasło", HttpStatus.FORBIDDEN);
             }

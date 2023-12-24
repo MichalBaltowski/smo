@@ -11,29 +11,31 @@
 	<!-- Style strony logowania -->
     <link rel="stylesheet" href="../styles/settingsPage/settingsPage.css">
 </head>
-<body>
+<body onload="loadUserSettings()">
 	<div class="logo">MeetWithMe</div>
 		<div class="main-container">
 			<button class="button" onclick="openMainPage()">Menu</button>
-			<div class="settings-container">
-				<div class="input-container" id="login-container">
-					<label for="login">Login</label>
-					<input type="text" id="login" name="login">
+			<form>
+				<div class="settings-container">
+					<div class="input-container" id="login-container">
+						<label for="login">Login</label>
+						<input type="text" id="login" name="login" disabled>
+					</div>
+					<div class="input-container" id="email-container">
+						<label for="email">E-mail</label>
+						<input type="text" id="email" name="email" disabled>
+					</div>
+					<div class="input-container" id="password-container">
+						<label for="password">Password</label>
+						<input type="text" id="password" name="password" disabled>
+					</div>
+					<div class="submit-container" id="submit-container">
+						<input type="button" value="Edytuj" onclick="enableEditing()">
+						<input type="submit" value="Zapisz" onclick="submit()">
+					</div>
 				</div>
-				<div class="input-container" id="email-container">
-					<label for="email">E-mail</label>
-					<input type="text" id="email" name="email">
-				</div>
-				<div class="input-container" id="password-container">
-					<label for="password">Password</label>
-					<input type="text" id="password" name="password">
-				</div>
-				<div class="submit-container" id="submit-container">
-					<input type="submit" value="Zapisz">
-				</div>
-			</div>
+			</form>		
 		</div>
-		
 	<script src="../script/settingsPage/settingsPage.js"></script>
 </body>
 </html>

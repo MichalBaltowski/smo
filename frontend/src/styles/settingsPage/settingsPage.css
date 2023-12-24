@@ -51,12 +51,32 @@
 }
 
 .settings-container input[type="text"] {
+    font-size: 18px;
     width: 30%; /* Dostosuj szerokość etykiety */
 	margin-left: 10%;
     padding: 10px; /* Wewnętrzny odstęp tekstu od krawędzi */
     box-sizing: border-box; /* Wliczanie paddingu i bordera do całkowitej szerokości/height */
     border: 1px solid #ccc; /* Grubość i kolor obramowania */
     border-radius: 4px; /* Zaokrąglenie rogów */
+}
+
+/* Styl dla disabled inputu */
+.settings-container input[type="text"]:disabled {
+    font-size: 18px;
+    background-color: #dbdbdb; /* Lekko przyszarzony kolor tła */
+    color: #000000; /* Lekko przyszarzony kolor tekstu */
+    cursor: not-allowed; /* Zmiana kursora, aby wskazywał, że input jest nieaktywny */
+    border: 2px solid #ccc;
+}
+
+.settings-container input[type="button"] {
+	width: 10%; /* Dostosuj szerokość etykiety */
+    background-color: #4caf50; /* Kolor tła przycisku */
+    color: white; /* Kolor tekstu przycisku */
+    padding: 10px; /* Wewnętrzny odstęp tekstu od krawędzi przycisku */
+    border: none; /* Brak obramowania przycisku */
+    border-radius: 4px; /* Zaokrąglenie rogów przycisku */
+    cursor: pointer; /* Zmiana kursora po najechaniu na przycisk */
 }
 
 .settings-container input[type="submit"] {

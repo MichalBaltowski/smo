@@ -19,3 +19,7 @@ app.get("/main", (req, res) => {
     res.sendFile(mainPagePath);
 });
 
+app.get("/settings", (req, res) => {
+  const mainPagePath = path.join(__dirname, "src", "pages", "settingsPage.html");
+  res.sendFile(mainPagePath);
+});

@@ -1,15 +1,12 @@
 function showCalendar() {
-    window.location.href = '/calendar';
+    window.location.assign('/calendar')
 }
 
 function showSettings() {
-    window.location.href = '/settings';
+    window.location.assign('/settings');
 }
 
 function logOut() {
-    window.location.href = '/login';
+    console.log("Wylogowano");
+    window.location.assign9('/login');
 }
-
-console.log("test");
-var s = localStorage.getItem('jwt');
-console.log("token z localstorage "+s);

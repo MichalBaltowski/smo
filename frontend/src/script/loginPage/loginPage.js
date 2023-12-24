@@ -1,6 +1,3 @@
-var domena = window.location.hostname;
-console.log("Domena strony: " + domena);
-
 document.querySelector('.loginButton').addEventListener('click', function() {
     // Pobierz dane z formularza
     var loginForm = document.querySelector('.loginFormElement');
