@@ -8,5 +8,5 @@ function showSettings() {
 
 function logOut() {
     console.log("Wylogowano");
-    window.location.assign9('/login');
+    window.location.assign('/login');
 }

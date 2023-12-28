@@ -3,6 +3,6 @@ C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\Token
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\DBEntity\User.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\SmoApplication.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\LoginRequest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\Security\JwtGenerator.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\Security\PrivateKeyLoader.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\Database\DBRepository.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\Security\RsaKeyLoader.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\src\main\java\pl\playwithme\smo\Security\JwtTokenFacade.java

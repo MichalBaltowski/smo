@@ -1,6 +1,8 @@
 pl\playwithme\smo\TokenResponse.class
 pl\playwithme\smo\DBEntity\User.class
+pl\playwithme\smo\Security\JwtTokenFacade.class
+pl\playwithme\smo\Database\DBRepository.class
 pl\playwithme\smo\SmoApplication.class
 pl\playwithme\smo\controller\User.class
-pl\playwithme\smo\Database\DBRepository.class
 pl\playwithme\smo\LoginRequest.class
+pl\playwithme\smo\Security\RsaKeyLoader.class

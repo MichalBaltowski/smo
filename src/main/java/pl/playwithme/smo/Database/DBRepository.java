@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.playwithme.smo.DBEntity.User;
 import pl.playwithme.smo.LoginRequest;
-import pl.playwithme.smo.Security.JwtGenerator;
+import pl.playwithme.smo.Security.JwtTokenFacade;
 
 import java.util.List;
 
@@ -107,7 +107,7 @@ public class DBRepository {
         var user = searchUserByName(loginRequest.getLogin());
         if (user != null) {
             if (user.getPassword().equals(loginRequest.getPassword())) {
-                var newToken = JwtGenerator.getNewToken(user.getId());
+                var newToken = JwtTokenFacade.getNewToken(user.getId());
                 return ResponseEntity.status(HttpStatus.OK)
                         .header("Content-Type", "application/json")
                         .body(newToken);

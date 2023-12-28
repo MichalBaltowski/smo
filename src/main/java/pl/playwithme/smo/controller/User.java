@@ -26,6 +26,7 @@ public class User {
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             System.out.println("otrzymany token" + authorizationHeader);
         }
+
         return dbRepository.getSettings();
     }
 
