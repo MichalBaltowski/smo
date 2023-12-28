@@ -7,12 +7,13 @@ import java.security.KeyFactory;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 public final class RsaKeyLoader {
 
     private static final String PRIVATE_KEY_FILE = "rsaPrivateKey.pem";
-    private static final String PUBLIC_KEY_FILE = "rsaPUBLICKey.pem";
+    private static final String PUBLIC_KEY_FILE = "rsaPublicKey.pem";
 
     public RSAPrivateKey loadPrivateKey() {
         return loadPemRsaPrivateKey();
@@ -74,7 +75,7 @@ public final class RsaKeyLoader {
 
             byte[] encoded = Base64.getDecoder().decode(publicKeyPem);
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-            PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(encoded);
+            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
             return (RSAPublicKey) keyFactory.generatePublic(keySpec);
         } catch (Exception e) {
             return null;

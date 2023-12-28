@@ -19,8 +19,9 @@ public class DBRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public ResponseEntity<List<User>> getSettings() {
+    public ResponseEntity<List<User>> getSettings(String authorizationHeader) {
         try {
+            JwtTokenFacade.validate(authorizationHeader.substring(7));
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

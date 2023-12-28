@@ -24,17 +24,13 @@ public final class JwtTokenFacade {
 
     public static DecodedJWT validate(String token) {
         try {
-            final DecodedJWT jwt = JWT.decode(token);
-
             RsaKeyLoader loader = new RsaKeyLoader();
             RSAPublicKey publicKey = loader.loadPublicKey();
 
             Algorithm algorithm = Algorithm.RSA256(publicKey, null);
-            JWTVerifier verifier = JWT.require(algorithm)
-                    .withIssuer(jwt.getIssuer())
-                    .build();
+            JWTVerifier verifier = JWT.require(algorithm).build();
 
-            verifier.verify(token);
+            final DecodedJWT jwt = verifier.verify(token);
             return jwt;
         } catch (Exception e) {
             throw new InvalidParameterException("JWT validation failed: " + e.getMessage());
@@ -44,7 +40,6 @@ public final class JwtTokenFacade {
     private static String generateJwt(String issuerId) {
         RsaKeyLoader loader = new RsaKeyLoader();
         RSAPrivateKey privateKey = loader.loadPrivateKey();
-        RSAPublicKey publicKey = loader.loadPublicKey();
 
         Date now = new Date();
         Date expiration = new Date(now.getTime() + EXPIRATION_TIME_15_MIN);
@@ -56,12 +51,10 @@ public final class JwtTokenFacade {
         header.put("type", "jwt");
 
         JWTCreator.Builder tokenBuilder = JWT.create()
-                .withIssuer(issuerId)
                 .withExpiresAt(expiration)
-                .withIssuedAt(now)
-                .withHeader(header);
+                .withIssuedAt(now);
 
-        return tokenBuilder.sign(Algorithm.RSA256(publicKey, privateKey));
+        return tokenBuilder.sign(Algorithm.RSA256(null, privateKey));
     }
 
 }
