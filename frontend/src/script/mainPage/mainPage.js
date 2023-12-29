@@ -8,5 +8,6 @@ function showSettings() {
 
 function logOut() {
     console.log("Wylogowano");
+    localStorage.removeItem('jwt');
     window.location.assign('/login');
 }
