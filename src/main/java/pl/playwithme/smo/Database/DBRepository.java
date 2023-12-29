@@ -22,6 +22,8 @@ public class DBRepository {
     public ResponseEntity<List<User>> getSettings(String authorizationHeader) {
         try {
             JwtTokenFacade.validate(authorizationHeader.substring(7));
+            jdbcTemplate.query("SELECT us.login. us.password, us.email FROM user as us",
+                    BeanPropertyRowMapper.newInstance(User.class));
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -66,9 +68,10 @@ public class DBRepository {
             if (userToUpdate.getPassword() != null) {
                 userToUpdate.setPassword(user.getPassword());
             }
-            jdbcTemplate.update("UPDATE user SET name=?,password=? WHERE id =?",
+            jdbcTemplate.update("UPDATE user SET name=?,password=?, email=? WHERE id =?",
                     userToUpdate.getName(),
                     userToUpdate.getPassword(),
+                    userToUpdate.getEmail(),
                     userToUpdate.getId());
             return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
         } else {
