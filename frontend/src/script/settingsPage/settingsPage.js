@@ -22,12 +22,39 @@ function loadUserSettings() {
     })
     .then(response => {
         if (response.ok) {
-			console.log("sukces");
+			return response.json();
         } else {
             console.error('Błąd.');
         }
     })
+    .then(data => {
+        var inputElement = document.getElementById('login');
+        if (inputElement) {
+            inputElement.value = data.name;
+        }
+        inputElement = document.getElementById('password');
+        if (inputElement) {
+            inputElement.value = data.password;
+        }
+        inputElement = document.getElementById('email');
+        if (inputElement) {
+            inputElement.value = data.email;
+        }
+    })
     .catch(error => console.error('Błąd sieci:', error));
+}
+
+function setSettings(data) {
+    setInputElement('login', data.name)
+    setInputElement('password', data.password)
+    setInputElement('email', data.email)
+}
+
+function setInputElement(elementId, text) {
+    var inputElement = document.getElementById(elementId);
+    if (inputElement) {
+        inputElement.value = text;
+    }
 }
 
 function enableEditing() {

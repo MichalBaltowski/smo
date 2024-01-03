@@ -19,12 +19,12 @@ public class DBRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public ResponseEntity<List<User>> getSettings(String authorizationHeader) {
+    public ResponseEntity<User> getSettings(String authorizationHeader) {
         try {
             JwtTokenFacade.validate(authorizationHeader.substring(7));
-            jdbcTemplate.query("SELECT us.login. us.password, us.email FROM user as us",
-                    BeanPropertyRowMapper.newInstance(User.class));
-            return new ResponseEntity<>(HttpStatus.OK);
+            var user = jdbcTemplate.query("SELECT * FROM user as us WHERE us.id =1",
+                    BeanPropertyRowMapper.newInstance(User.class)).get(0);
+            return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
