@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MeetWithMe</title>
-	
-    <!-- Wspólne style -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MeetWithMe</title>
+
+	<!-- Wspólne style -->
 	<link rel="stylesheet" href="../styles/common/common.css">
 
 	<!-- Style strony logowania -->
-    <link rel="stylesheet" href="../styles/settingsPage/settingsPage.css">
+	<link rel="stylesheet" href="../styles/settingsPage/settingsPage.css">
 </head>
+
 <body>
 	<div class="logo">MeetWithMe</div>
-		<div class="main-container">
-			<button class="button" onclick="openMainPage()">Menu</button>
-				<form class="settings-container">
-					<div class="input-container" id="login-container">
-						<label for="login">Login</label>
-						<input type="text" id="login" name="login" disabled>
-					</div>
-					<div class="input-container" id="email-container">
-						<label for="email">E-mail</label>
-						<input type="text" id="email" name="email" disabled>
-					</div>
-					<div class="input-container" id="password-container">
-						<label for="password">Password</label>
-						<input type="text" id="password" name="password" disabled>
-					</div>
-					<div class="submit-container" id="submit-container">
-						<input type="button" value="Edytuj" onclick="enableEditing()">
-						<input type="button" value="Zapisz" onclick="saveSettings()">
-					</div>
-				</form>		
-		</div>
+	<div class="main-container">
+		<button class="button" onclick="openMainPage()">Menu</button>
+		<form class="settings-container">
+			<div class="input-container" id="login-container">
+				<label for="login">Login</label>
+				<input type="text" id="login" name="login" disabled>
+			</div>
+			<div class="input-container" id="email-container">
+				<label for="email">E-mail</label>
+				<input type="text" id="email" name="email" disabled>
+			</div>
+			<div class="input-container" id="password-container">
+				<label for="password">Password</label>
+				<input type="text" id="password" name="password" disabled>
+			</div>
+			<div class="submit-container" id="submit-container">
+				<input type="button" value="Edytuj" onclick="enableEditing()">
+				<input type="button" value="Zapisz" onclick="saveSettings()">
+			</div>
+		</form>
+	</div>
+	<div class="popup-background" style="display:none;"></div>
+	<div class="popup" style="display:none;">
+		<p>Sesja wygasła</p>
+		<button onclick="closePopup()">Wyloguj</button>
+	</div>
 	<script src="../script/settingsPage/settingsPage.js"></script>
 </body>
+
 </html>

@@ -12,6 +12,7 @@ import pl.playwithme.smo.LoginRequest;
 import pl.playwithme.smo.SaveSettingsRequest;
 import pl.playwithme.smo.Security.JwtTokenFacade;
 
+import java.security.InvalidParameterException;
 import java.util.List;
 
 @Repository
@@ -26,6 +27,8 @@ public class DBRepository {
             var user = jdbcTemplate.query("SELECT * FROM user as us WHERE us.id =1",
                     BeanPropertyRowMapper.newInstance(User.class)).get(0);
             return new ResponseEntity<>(user, HttpStatus.OK);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -16,6 +16,7 @@ import java.util.Map;
 public final class JwtTokenFacade {
 
     private static final long EXPIRATION_TIME_15_MIN = 900_000; // 15 minutes
+    private static final long EXPIRATION_TIME_20_SEC = 20_000; // 15 minutes
 
     public static String getNewToken(String issuerId) {
         var newToken = JwtTokenFacade.generateJwt(issuerId);
@@ -42,7 +43,7 @@ public final class JwtTokenFacade {
         RSAPrivateKey privateKey = loader.loadPrivateKey();
 
         Date now = new Date();
-        Date expiration = new Date(now.getTime() + EXPIRATION_TIME_15_MIN);
+        Date expiration = new Date(now.getTime() + EXPIRATION_TIME_20_SEC);
 
         Map<String, Object> claims = new HashMap<>();
         claims.put("roles", "wartosc");

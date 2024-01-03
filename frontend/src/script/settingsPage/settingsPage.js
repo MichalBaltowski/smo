@@ -1,7 +1,3 @@
-function openMainPage() {
-    window.location.assign('/main');
-}
-
 window.addEventListener('load', function () {
     loadUserSettings();
 });
@@ -23,6 +19,9 @@ function loadUserSettings() {
         .then(response => {
             if (response.ok) {
                 return response.json();
+            } else if (response.status === 401) {
+                showPopup();
+                console.error('Błąd autoryzacji: Nieautoryzowany dostęp (401).');
             } else {
                 console.error('Błąd.');
             }
@@ -74,7 +73,7 @@ function saveSettings() {
 
 function turnOffInput() {
     var inputContainers = document.querySelectorAll('.input-container');
-    
+
     inputContainers.forEach(function (container) {
         var input = container.querySelector('input');
         input.disabled = true;
@@ -104,12 +103,29 @@ function send(settingsData) {
         },
         body: JSON.stringify(settingsData)
     })
-    .then(response => {
-        if (response.ok) {
-            console.log('Dane zapisane pomyślnie!');
-        } else {
-            console.error('Błąd zapisu danych usera.');
-        }
-    })
-    .catch(error => console.error('Błąd sieci:', error));
+        .then(response => {
+            if (response.ok) {
+                console.log('Dane zapisane pomyślnie!');
+            } else if (response.status === 401) {
+                showPopup();
+                console.error('Błąd autoryzacji: Nieautoryzowany dostęp (401).');
+            } else {
+                console.error('Błąd zapisu danych.');
+            }
+        })
+        .catch(error => console.error('Błąd sieci:', error));
 }
+
+function showPopup() {
+    document.querySelector('.popup-background').style.display = 'block';
+    document.querySelector('.popup').style.display = 'block';
+}
+
+function closePopup() {
+    document.querySelector('.popup-background').style.display = 'none';
+    document.querySelector('.popup').style.display = 'none';
+    localStorage.removeItem('jwt');
+    window.location.assign('/login');
+    console.log("Wylogowano");
+}
+

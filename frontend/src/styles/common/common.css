@@ -19,3 +19,28 @@ body {
 .button:hover {
     background-color: #45a049;
 }
+
+.popup-background {
+    display: none; /* Ukryty domyślnie */
+    position: fixed; /* Pozycjonowanie względem okna przeglądarki */
+    top: 0; /* Górna krawędź przyklejona do góry ekranu */
+    left: 0; /* Lewa krawędź przyklejona do lewej strony ekranu */
+    width: 100%; /* Szerokość tła obejmuje całą szerokość okna przeglądarki */
+    height: 100%; /* Wysokość tła obejmuje całą wysokość okna przeglądarki */
+    background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste czarne tło */
+    z-index: 999; /* Z-index ustawiony na wysoką wartość, ale niższą niż popup */
+}
+
+/* Styl dla popupu */
+.popup {
+    display: none; /* Ukryty domyślnie */
+    position: fixed; /* Pozycjonowanie względem okna przeglądarki */
+    left: 50%; /* Centrowanie w poziomie */
+    top: 50%; /* Centrowanie w pionie */
+    transform: translate(-50%, -50%); /* Przesunięcie w lewo i w górę o połowę szerokości i wysokości elementu */
+    border: 1px solid #000; /* Cienka czarna ramka */
+    background-color: white; /* Białe tło */
+    padding: 20px; /* Odstępy wewnątrz popupu */
+    z-index: 1000; /* Z-index ustawiony na wartość wyższą niż tło, aby popup był na wierzchu */
+    /* Możesz dodać więcej stylów, takich jak szerokość, cień itp. */
+}
