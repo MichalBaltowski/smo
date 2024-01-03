@@ -1,15 +1,15 @@
 function openMainPage() {
-        window.location.assign('/main');
+    window.location.assign('/main');
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     loadUserSettings();
 });
 
 function loadUserSettings() {
     console.log("Pobranie danych użytkownika");
     var token = localStorage.getItem('jwt');
-    console.log("Token " + token);
+    //console.log("Token " + token);
 
 
     // Wyślij żądanie HTTP POST do serwera
@@ -20,28 +20,28 @@ function loadUserSettings() {
             'Content-Type': 'application/json'
         },
     })
-    .then(response => {
-        if (response.ok) {
-			return response.json();
-        } else {
-            console.error('Błąd.');
-        }
-    })
-    .then(data => {
-        var inputElement = document.getElementById('login');
-        if (inputElement) {
-            inputElement.value = data.name;
-        }
-        inputElement = document.getElementById('password');
-        if (inputElement) {
-            inputElement.value = data.password;
-        }
-        inputElement = document.getElementById('email');
-        if (inputElement) {
-            inputElement.value = data.email;
-        }
-    })
-    .catch(error => console.error('Błąd sieci:', error));
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('Błąd.');
+            }
+        })
+        .then(data => {
+            var inputElement = document.getElementById('login');
+            if (inputElement) {
+                inputElement.value = data.name;
+            }
+            inputElement = document.getElementById('password');
+            if (inputElement) {
+                inputElement.value = data.password;
+            }
+            inputElement = document.getElementById('email');
+            if (inputElement) {
+                inputElement.value = data.email;
+            }
+        })
+        .catch(error => console.error('Błąd sieci:', error));
 }
 
 function setSettings(data) {
@@ -58,19 +58,58 @@ function setInputElement(elementId, text) {
 }
 
 function enableEditing() {
-        var inputContainers = document.querySelectorAll('.input-container');
-        inputContainers.forEach(function(container) {
-            var input = container.querySelector('input');
-            input.disabled = false;
-        });
-        var input = container.querySelector('submit');
-        submit.disabled;
-    }
+    var inputContainers = document.querySelectorAll('.input-container');
+    inputContainers.forEach(function (container) {
+        var input = container.querySelector('input');
+        input.disabled = false;
+    });
+    console.log('edycja');
+}
 
-function submit() {
-        var inputContainers = document.querySelectorAll('.input-container');
-        inputContainers.forEach(function(container) {
-            var input = container.querySelector('input');
-            input.disabled = true;
-        });  
+function saveSettings() {
+    var settingsData = createSettingsObjectToSend();
+    send(settingsData);
+    turnOffInput();
+}
+
+function turnOffInput() {
+    var inputContainers = document.querySelectorAll('.input-container');
+    
+    inputContainers.forEach(function (container) {
+        var input = container.querySelector('input');
+        input.disabled = true;
+    });
+}
+
+function createSettingsObjectToSend() {
+    var form = document.querySelector('.settings-container');
+    var formData = new FormData(form);
+
+    var settingsData = {
+        name: formData.get('login'),
+        password: formData.get('password'),
+        email: formData.get('email')
+    };
+    return settingsData;
+}
+
+function send(settingsData) {
+    var token = localStorage.getItem('jwt');
+    // Wyślij żądanie HTTP POST do serwera
+    fetch('http://localhost:8080/api/user/settings', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(settingsData)
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Dane zapisane pomyślnie!');
+        } else {
+            console.error('Błąd zapisu danych usera.');
+        }
+    })
+    .catch(error => console.error('Błąd sieci:', error));
 }

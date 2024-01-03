@@ -15,8 +15,7 @@
 	<div class="logo">MeetWithMe</div>
 		<div class="main-container">
 			<button class="button" onclick="openMainPage()">Menu</button>
-			<form>
-				<div class="settings-container">
+				<form class="settings-container">
 					<div class="input-container" id="login-container">
 						<label for="login">Login</label>
 						<input type="text" id="login" name="login" disabled>
@@ -31,10 +30,9 @@
 					</div>
 					<div class="submit-container" id="submit-container">
 						<input type="button" value="Edytuj" onclick="enableEditing()">
-						<input type="submit" value="Zapisz" onclick="submit()">
+						<input type="button" value="Zapisz" onclick="saveSettings()">
 					</div>
-				</div>
-			</form>		
+				</form>		
 		</div>
 	<script src="../script/settingsPage/settingsPage.js"></script>
 </body>
