@@ -86,7 +86,7 @@ function createSettingsObjectToSend() {
     var formData = new FormData(form);
 
     var settingsData = {
-        name: formData.get('login'),
+        login: formData.get('login'),
         password: formData.get('password'),
         email: formData.get('email')
     };

@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.playwithme.smo.Database.DBRepository;
 import pl.playwithme.smo.LoginRequest;
+import pl.playwithme.smo.SaveSettingsRequest;
 
 import java.util.List;
 
@@ -22,8 +23,14 @@ public class User {
     }
 
     @GetMapping("/settings")
-    public ResponseEntity settings(@RequestHeader("Authorization") String authorizationHeader) {
+    public ResponseEntity getSettings(@RequestHeader("Authorization") String authorizationHeader) {
         return dbRepository.getSettings(authorizationHeader);
+    }
+
+    @PostMapping("/settings")
+    public ResponseEntity saveSettings(@RequestHeader("Authorization") String authorizationHeader,
+                                       @RequestBody SaveSettingsRequest request) {
+        return dbRepository.saveSettings(authorizationHeader, request);
     }
 
     @GetMapping("/{id}")

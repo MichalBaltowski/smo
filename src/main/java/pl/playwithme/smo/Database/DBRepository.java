@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.playwithme.smo.DBEntity.User;
 import pl.playwithme.smo.LoginRequest;
+import pl.playwithme.smo.SaveSettingsRequest;
 import pl.playwithme.smo.Security.JwtTokenFacade;
 
 import java.util.List;
@@ -25,6 +26,20 @@ public class DBRepository {
             var user = jdbcTemplate.query("SELECT * FROM user as us WHERE us.id =1",
                     BeanPropertyRowMapper.newInstance(User.class)).get(0);
             return new ResponseEntity<>(user, HttpStatus.OK);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity<User> saveSettings(String authorizationHeader,
+                                             SaveSettingsRequest request) {
+        try {
+            JwtTokenFacade.validate(authorizationHeader.substring(7));
+            jdbcTemplate.update("UPDATE user SET name=?,password=?,email=? WHERE id = 1",
+                    request.getLogin(),
+                    request.getPassword(),
+                    request.getEmail());
+            return new ResponseEntity<>( HttpStatus.OK);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
