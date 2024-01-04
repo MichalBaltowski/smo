@@ -23,3 +23,13 @@ app.get("/settings", (req, res) => {
   const mainPagePath = path.join(__dirname, "src", "pages", "settingsPage.html");
   res.sendFile(mainPagePath);
 });
+
+app.get("/quiz", (req, res) => {
+  const quizPagePath = path.join(__dirname, "src", "pages", "quiz", "quizPage.html");
+  res.sendFile(quizPagePath);
+});
+
+app.get("/addCard", (req, res) => {
+  const quizPagePath = path.join(__dirname, "src", "pages", "quiz", "addCard.html");
+  res.sendFile(quizPagePath);
+});

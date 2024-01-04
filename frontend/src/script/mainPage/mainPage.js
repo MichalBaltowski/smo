@@ -1,9 +1,13 @@
-function showCalendar() {
+function openCalendar() {
     window.location.assign('/calendar')
 }
 
-function showSettings() {
+function openSettings() {
     window.location.assign('/settings');
+}
+
+function openQuiz() {
+    window.location.assign('/quiz');
 }
 
 function logOut() {
