@@ -24,7 +24,7 @@ public class DBRepository {
     public ResponseEntity<User> getSettings(String authorizationHeader) {
         try {
             var decodedToken = JwtTokenFacade.validate(authorizationHeader.substring(7));
-            var userId = decodedToken.getClaim("userId");
+            var userId = decodedToken.getSubject();
             var query = "SELECT * FROM user as us WHERE us.id = " + userId;
             var user = jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(User.class)).get(0);
             return new ResponseEntity<>(user, HttpStatus.OK);
@@ -39,12 +39,12 @@ public class DBRepository {
                                              SaveSettingsRequest request) {
         try {
             var decodedToken = JwtTokenFacade.validate(authorizationHeader.substring(7));
-            var userId = decodedToken.getClaim("userId");
+            var userId = decodedToken.getSubject();
             jdbcTemplate.update("UPDATE user SET name=?,password=?,email=? WHERE id = ?",
                     request.getLogin(),
                     request.getPassword(),
                     request.getEmail(),
-                    userId.toString());
+                    userId);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

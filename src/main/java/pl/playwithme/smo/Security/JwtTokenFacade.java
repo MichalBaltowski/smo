@@ -10,13 +10,12 @@ import java.security.InvalidParameterException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public final class JwtTokenFacade {
 
     private static final long EXPIRATION_TIME_15_MIN = 900_000; // 15 minutes
-    private static final long EXPIRATION_TIME_20_SEC = 20_000; // 15 minutes
+    private static final String CLAIM_ISSUER_VALUE = "localhost:8080";
+    private static final String CLAIM_SUBJECT_NAME = "sub";
 
     public static String getNewToken(String userId) {
         var newToken = JwtTokenFacade.generateJwt(userId);
@@ -30,7 +29,8 @@ public final class JwtTokenFacade {
 
             Algorithm algorithm = Algorithm.RSA256(publicKey, null);
             JWTVerifier verifier = JWT.require(algorithm)
-                    .withClaimPresence("userId")
+                    .withIssuer(CLAIM_ISSUER_VALUE)
+                    .withClaimPresence(CLAIM_SUBJECT_NAME)
                     .build();
 
             final DecodedJWT jwt = verifier.verify(token);
@@ -49,7 +49,8 @@ public final class JwtTokenFacade {
 
         JWTCreator.Builder tokenBuilder = JWT.create()
                 .withExpiresAt(expiration)
-                .withClaim("userId", userId)
+                .withIssuer(CLAIM_ISSUER_VALUE)
+                .withSubject(userId)
                 .withIssuedAt(now);
 
         return tokenBuilder.sign(Algorithm.RSA256(null, privateKey));
