@@ -23,9 +23,10 @@ public class DBRepository {
 
     public ResponseEntity<User> getSettings(String authorizationHeader) {
         try {
-            JwtTokenFacade.validate(authorizationHeader.substring(7));
-            var user = jdbcTemplate.query("SELECT * FROM user as us WHERE us.id =1",
-                    BeanPropertyRowMapper.newInstance(User.class)).get(0);
+            var decodedToken = JwtTokenFacade.validate(authorizationHeader.substring(7));
+            var userId = decodedToken.getClaim("userId");
+            var query = "SELECT * FROM user as us WHERE us.id = " + userId;
+            var user = jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(User.class)).get(0);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -37,12 +38,16 @@ public class DBRepository {
     public ResponseEntity<User> saveSettings(String authorizationHeader,
                                              SaveSettingsRequest request) {
         try {
-            JwtTokenFacade.validate(authorizationHeader.substring(7));
-            jdbcTemplate.update("UPDATE user SET name=?,password=?,email=? WHERE id = 1",
+            var decodedToken = JwtTokenFacade.validate(authorizationHeader.substring(7));
+            var userId = decodedToken.getClaim("userId");
+            jdbcTemplate.update("UPDATE user SET name=?,password=?,email=? WHERE id = ?",
                     request.getLogin(),
                     request.getPassword(),
-                    request.getEmail());
-            return new ResponseEntity<>( HttpStatus.OK);
+                    request.getEmail(),
+                    userId.toString());
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

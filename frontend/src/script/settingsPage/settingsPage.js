@@ -2,6 +2,10 @@ window.addEventListener('load', function () {
     loadUserSettings();
 });
 
+function openMainPage() {
+    window.location.assign('/main');
+}
+
 function loadUserSettings() {
     console.log("Pobranie danych użytkownika");
     var token = localStorage.getItem('jwt');
