@@ -1,9 +1,10 @@
 function openQuizMainPage() {
-    window.location.assign('/quiz')
+    window.location.assign('/quiz');
 }
 
 function addCard() {
     var cardData = createCardData();
+    console.log(JSON.stringify(cardData));
     send(cardData);
 }
 
@@ -26,7 +27,7 @@ function send(cardData) {
     var jwt = localStorage.getItem("jwt");
 
     fetch('http://localhost:8080/api/quiz/addCard', {
-        method: 'PUT',
+        method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + jwt,
             'Content-Type': 'application/json'

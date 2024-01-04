@@ -1,5 +1,6 @@
 package pl.playwithme.smo.Database;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import pl.playwithme.smo.DBEntity.Card;
 import pl.playwithme.smo.DBEntity.User;
 import pl.playwithme.smo.LoginRequest;
 import pl.playwithme.smo.SaveSettingsRequest;
@@ -144,6 +146,30 @@ public class DBRepository {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
 
+    public ResponseEntity addCard(String authorizationHeader, Card card) {
+        try {
+            validateJwt(authorizationHeader);
+            jdbcTemplate.update("INSERT INTO question (question, answer, category, difficulty_level, study_level) VALUES (?,?,?,?,?)",
+                    card.getQuestion(),
+                    card.getAnswer(),
+                    card.getCategory(),
+                    card.getDifficultyLevel(),
+                    card.getStudyLevel());
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    private DecodedJWT validateJwt(String authorizationHeader) {
+        return JwtTokenFacade.validate(getToken(authorizationHeader));
+    }
+
+    private String getToken(String authorizationHeader) {
+        return authorizationHeader.substring(7);
     }
 }
