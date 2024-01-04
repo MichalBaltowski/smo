@@ -21,3 +21,8 @@ Backlog:
 - Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
 - Zabezpieczenie aplikacji przed sql injection
 - Dodanie testów jednostkowych
+
+Backlog - tech debt
+- używać zmiennych w css
+- poprawić nadmiarowość kodu w wywołaniu usług
+- pousuwać usługi które nie są używane

@@ -9,9 +9,7 @@ function openMainPage() {
 function loadUserSettings() {
     console.log("Pobranie danych użytkownika");
     var token = localStorage.getItem('jwt');
-    //console.log("Token " + token);
-
-
+    
     // Wyślij żądanie HTTP POST do serwera
     fetch('http://localhost:8080/api/user/settings', {
         method: 'GET',

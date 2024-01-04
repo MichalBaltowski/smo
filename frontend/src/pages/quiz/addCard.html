@@ -15,22 +15,24 @@
 
 <body>
 	<div class="logo">MeetMe</div>
-	<div class="main-container">
-		<div class="text-input-container">
-			<div class="input-group">
-				<label for="question">Pytanie:</label>
-				<textarea id="question" name="question"></textarea>
-			</div>
-			<div class="input-group">
-				<label for="answer">Odpowiedź:</label>
-				<textarea id="answer" name="answer"></textarea>
-			</div>
+	<form class="main-container">
+		<div class="input-group">
+			<label for="question">Pytanie:</label>
+			<textarea id="question" name="question"></textarea>
+		</div>
+		<div class="input-group">
+			<label for="answer">Odpowiedź:</label>
+			<textarea id="answer" name="answer"></textarea>
+		</div>
+		<div class="input-group">
+			<label for="category">Kategoria:</label>
+			<textarea id="category" name="category"></textarea>
 		</div>
 		<div class="input-container">
 			<button class="button" onclick="addCard()">Dodaj</button>
 			<button class="button" onclick="openQuizMainPage()">Powrót</button>
 		</div>
-	</div>
+	</form>
 	<script src="../script/quizPage/addCardPage.js"></script>
 </body>
 
