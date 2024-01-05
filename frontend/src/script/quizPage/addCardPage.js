@@ -1,10 +1,9 @@
-function openQuizMainPage() {
+function openQuiz() {
     window.location.assign('/quiz');
 }
 
 function addCard() {
     var cardData = createCardData();
-    console.log(JSON.stringify(cardData));
     send(cardData);
 }
 

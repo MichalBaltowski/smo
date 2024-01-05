@@ -1,9 +1,5 @@
 function openMainMenu() {
-    window.location.assign('/main')
-}
-
-function startQuiz() {
-    window.location.assign('/');
+    window.location.assign('/main');
 }
 
 function addCard() {

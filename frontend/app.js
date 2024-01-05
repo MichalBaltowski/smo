@@ -3,7 +3,10 @@ const path = require("path");
 const app = express();
 
 app.listen(3000, () => {
-  console.log("Application started and Listening on port 3000");
+  var currentDateTime = new Date();
+  var formattedDateTime = currentDateTime.toLocaleTimeString(); // formatuje czas do postaci HH:MM:SS
+
+  console.log(formattedDateTime + ' Application started and Listening on port 3000');
 });
 const loginPageCommonCss = path.join(__dirname, "src");
 app.use(express.static(loginPageCommonCss));
