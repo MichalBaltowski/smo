@@ -1,5 +1,5 @@
 function openQuiz() {
-    window.location.assign('/quiz');
+    window.location.assign('/quizMain');
 }
 
 function addCard() {

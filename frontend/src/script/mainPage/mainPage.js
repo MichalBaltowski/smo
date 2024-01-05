@@ -6,8 +6,8 @@ function openSettings() {
     window.location.assign('/settings');
 }
 
-function openQuiz() {
-    window.location.assign('/quiz');
+function openQuizMenu() {
+    window.location.assign('/quizMain');
 }
 
 function logOut() {

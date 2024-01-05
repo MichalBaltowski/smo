@@ -27,8 +27,8 @@ app.get("/settings", (req, res) => {
   res.sendFile(mainPagePath);
 });
 
-app.get("/quiz", (req, res) => {
-  const quizPagePath = path.join(__dirname, "src", "pages", "quiz", "quizPage.html");
+app.get("/quizMain", (req, res) => {
+  const quizPagePath = path.join(__dirname, "src", "pages", "quiz", "quizMainPage.html");
   res.sendFile(quizPagePath);
 });
 
