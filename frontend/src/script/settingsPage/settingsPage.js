@@ -1,10 +1,10 @@
-window.addEventListener('load', function () {
-    loadUserSettings();
-});
-
 function openMainPage() {
     window.location.assign('/main');
 }
+
+window.addEventListener('load', function () {
+    loadUserSettings();
+});
 
 function loadUserSettings() {
     console.log("Pobranie danych użytkownika");

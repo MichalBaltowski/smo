@@ -33,6 +33,11 @@ app.get("/quizMain", (req, res) => {
 });
 
 app.get("/addCard", (req, res) => {
-  const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "addCard.html");
+  const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "addCardPage.html");
+  res.sendFile(addCardPagePath);
+});
+
+app.get("/quiz", (req, res) => {
+  const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "quizPage.html");
   res.sendFile(addCardPagePath);
 });

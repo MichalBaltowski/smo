@@ -1,4 +1,4 @@
-function openQuiz() {
+function openQuizMainPage() {
     window.location.assign('/quizMain');
 }
 

@@ -2,7 +2,7 @@
 MeetMe
 
 Todo:
-- dodanie ekranu obsługującego quiz (przeklikiwanie fiszek)
+-
 - dodanie endpoita do pobrania pytań do quizu
 - Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
 - Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
@@ -10,7 +10,7 @@ Todo:
 - pousuwać usługi które nie są używane
 
 Done:
-
+- dodanie ekranu obsługującego quiz (przeklikiwanie fiszek)
 
 
 
@@ -27,6 +27,7 @@ Backlog:
 Backlog - tech debt
 - używać zmiennych w css
 - poprawić nadmiarowość kodu w wywołaniu usług
+- Zmienić wywołania onclick na nasłuchiwanie zdarzeń w javascript(aby oddzielić strukture od zachowania)
 
 
 

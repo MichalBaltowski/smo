@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+	
+    <!-- Wspólne style -->
+	<link rel="stylesheet" href="../styles/common/common.css">
+
+	<!-- Style strony logowania -->
+    <link rel="stylesheet" href="../styles/quizPage/quizPage.css">
+</head>
+<body>
+	<div class="logo">MeetMe</div>
+	<div class="main-container">
+		<div class="quiz-container">
+			<textarea class="textPanel" id="question" name="question"></textarea>
+			<textarea class="textPanel" id="answer" name="answer"></textarea>
+			<button class="button" id="poorKnowledge">Pokaż odpowiedź</button>
+			<div class="buttons-container">
+				<button class="button" id="poorKnowledge">Powtórz</button>
+				<button class="button" id="poorKnowledge">Słabo</button>
+				<button class="button" id="moderateKnowledge">Średnio</button>
+				<button class="button" id="goodKnowledge">Dobrze</button>
+			</div>
+		</div>
+		<div >
+			<button class="button" id="returnToQuizPage">Powrót</button>
+		</div>
+	</div>	
+	<script src="../script/quizPage/quizPage.js"></script>
+</body>
+</html>
