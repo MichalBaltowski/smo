@@ -36,6 +36,7 @@ function send(cardData) {
         .then(response => {
             if (response.ok) {
                 console.log('Fiszka dodana pomyślnie!');
+                clearInputs();
             } else if (response.status === 401) {
                 showPopup();
                 console.error('Błąd autoryzacji: Nieautoryzowany dostęp (401).');
@@ -46,3 +47,9 @@ function send(cardData) {
         .catch(error => console.error('Błąd sieci:', error));
 }
 
+function clearInputs() {
+    console.log('czyszczenie pól');
+    var inputs = document.querySelectorAll('.input-group textarea');
+    console.log('Znalezione inputy do wyczyszczenia ' + inputs);
+    inputs.forEach(input => { input.value = '';});
+}
