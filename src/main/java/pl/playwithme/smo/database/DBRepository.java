@@ -1,4 +1,4 @@
-package pl.playwithme.smo.Database;
+package pl.playwithme.smo.database;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import pl.playwithme.smo.DBEntity.Card;
-import pl.playwithme.smo.DBEntity.User;
-import pl.playwithme.smo.LoginRequest;
-import pl.playwithme.smo.SaveSettingsRequest;
-import pl.playwithme.smo.Security.JwtTokenFacade;
+import pl.playwithme.smo.entity.Card;
+import pl.playwithme.smo.entity.User;
+import pl.playwithme.smo.dto.LoginRequest;
+import pl.playwithme.smo.dto.SaveSettingsRequest;
+import pl.playwithme.smo.service.security.JwtTokenFacade;
 
 import java.security.InvalidParameterException;
 import java.util.List;

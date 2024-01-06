@@ -1,4 +1,4 @@
-package pl.playwithme.smo.Security;
+package pl.playwithme.smo.service.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

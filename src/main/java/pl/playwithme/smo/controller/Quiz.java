@@ -3,8 +3,8 @@ package pl.playwithme.smo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.playwithme.smo.DBEntity.Card;
-import pl.playwithme.smo.Database.DBRepository;
+import pl.playwithme.smo.entity.Card;
+import pl.playwithme.smo.database.DBRepository;
 
 
 @RestController

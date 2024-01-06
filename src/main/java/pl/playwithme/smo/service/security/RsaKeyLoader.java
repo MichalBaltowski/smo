@@ -1,4 +1,4 @@
-package pl.playwithme.smo.Security;
+package pl.playwithme.smo.service.security;
 
 import java.io.File;
 import java.io.IOException;

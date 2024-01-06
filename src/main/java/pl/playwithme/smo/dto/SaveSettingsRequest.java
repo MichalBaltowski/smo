@@ -1,4 +1,4 @@
-package pl.playwithme.smo;
+package pl.playwithme.smo.dto;
 
 import lombok.Data;
 

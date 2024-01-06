@@ -1,4 +1,4 @@
-package pl.playwithme.smo.DBEntity;
+package pl.playwithme.smo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,14 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Card {
+public class User {
 
     private int id;
-    private String question;
-    private String answer;
-    private String category;
-    private int difficultyLevel;
-    private int studyLevel;
+    private String name;
+    private String password;
+    private String email;
 
     public String getId() {
         return String.valueOf(id);
