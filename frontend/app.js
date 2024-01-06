@@ -13,17 +13,17 @@ app.use(express.static(loginPageCommonCss));
 
 //pages
 app.get("/login", (req, res) => {
-    const loginPagePath = path.join(__dirname, "src", "pages", "loginPage.html");
+    const loginPagePath = path.join(__dirname, "src", "pages", "login", "loginPage.html");
     res.sendFile(loginPagePath);
 });
 
 app.get("/main", (req, res) => {
-    const mainPagePath = path.join(__dirname, "src", "pages", "mainPage.html");
+    const mainPagePath = path.join(__dirname, "src", "pages", "main", "mainPage.html");
     res.sendFile(mainPagePath);
 });
 
 app.get("/settings", (req, res) => {
-  const mainPagePath = path.join(__dirname, "src", "pages", "settingsPage.html");
+  const mainPagePath = path.join(__dirname, "src", "pages", "settings", "settingsPage.html");
   res.sendFile(mainPagePath);
 });
 

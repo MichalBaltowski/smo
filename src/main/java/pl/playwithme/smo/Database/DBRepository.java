@@ -55,25 +55,6 @@ public class DBRepository {
         }
     }
 
-    public ResponseEntity<List<User>> getAll() {
-        try {
-            List<User> query = jdbcTemplate.query("SELECT * FROM user",
-                    BeanPropertyRowMapper.newInstance(User.class));
-            return new ResponseEntity<>(query, HttpStatus.OK);
-        } catch (DataAccessException exception) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    public ResponseEntity<User> getById(int id) {
-        var user = searchUserById(id);
-        if (user != null) {
-            return new ResponseEntity<>(user, HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
     public ResponseEntity save(List<User> users) {
         try {
             users.forEach(user -> jdbcTemplate.update("INSERT INTO user (name, password) VALUES (?,?)",
@@ -82,45 +63,6 @@ public class DBRepository {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(users, HttpStatus.CREATED);
-    }
-
-    public ResponseEntity update(int id, User user) {
-        var userToUpdate = searchUserById(id);
-        if (userToUpdate != null) {
-            if (userToUpdate.getName() != null) {
-                userToUpdate.setName(user.getName());
-            }
-            if (userToUpdate.getPassword() != null) {
-                userToUpdate.setPassword(user.getPassword());
-            }
-            jdbcTemplate.update("UPDATE user SET name=?,password=?, email=? WHERE id =?",
-                    userToUpdate.getName(),
-                    userToUpdate.getPassword(),
-                    userToUpdate.getEmail(),
-                    userToUpdate.getId());
-            return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
-        } else {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    public ResponseEntity delete(int id) {
-        var userToDelete = getById(id);
-        if (userToDelete != null) {
-            jdbcTemplate.update("DELETE FROM user WHERE id = ?", id);
-            return new ResponseEntity<>(HttpStatus.ACCEPTED);
-        } else {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    private User searchUserById(int id) {
-        try {
-            return jdbcTemplate.queryForObject("SELECT * FROM user WHERE id = ?",
-                    BeanPropertyRowMapper.newInstance(User.class), id);
-        } catch (Exception exception) {
-            return null;
-        }
     }
 
     private User searchUserByName(String name) {
@@ -165,6 +107,31 @@ public class DBRepository {
         }
     }
 
+    public ResponseEntity getCard(String authorizationHeader) {
+        try {
+            validateJwt(authorizationHeader);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity prepareCardSet(String authorizationHeader) {
+        try {
+            validateJwt(authorizationHeader);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
     private DecodedJWT validateJwt(String authorizationHeader) {
         return JwtTokenFacade.validate(getToken(authorizationHeader));
     }
@@ -172,4 +139,5 @@ public class DBRepository {
     private String getToken(String authorizationHeader) {
         return authorizationHeader.substring(7);
     }
+
 }

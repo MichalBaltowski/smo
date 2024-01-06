@@ -48,8 +48,6 @@ function send(cardData) {
 }
 
 function clearInputs() {
-    console.log('czyszczenie pól');
     var inputs = document.querySelectorAll('.input-group textarea');
-    console.log('Znalezione inputy do wyczyszczenia ' + inputs);
     inputs.forEach(input => { input.value = '';});
 }

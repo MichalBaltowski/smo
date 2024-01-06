@@ -7,11 +7,11 @@ Todo:
 - Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
 - Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
 - Dodanie testów jednostkowych
-- pousuwać usługi które nie są używane
+-
 
 Done:
 - dodanie ekranu obsługującego quiz (przeklikiwanie fiszek)
-
+- pousuwać usługi które nie są używane
 
 
 

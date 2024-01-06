@@ -20,4 +20,13 @@ public class Quiz {
                               @RequestBody Card card) {
         return dbRepository.addCard(authorizationHeader, card);
     }
+
+    @GetMapping("/getCard")
+    public ResponseEntity get(@RequestHeader("Authorization") String authorizationHeader) {
+        return dbRepository.getCard(authorizationHeader);
+    }
+
+    public ResponseEntity prepareCardSet(@RequestHeader("Authorization") String authorizationHeader) {
+        return dbRepository.prepareCardSet(authorizationHeader);
+    }
 }
