@@ -8,7 +8,7 @@ function openQuizMainPage() {
 }
 
 window.addEventListener('load', function () {
-    //loadFirstQuestion();
+    loadFirstQuestion();
 });
 
 function loadFirstQuestion() {
@@ -16,7 +16,7 @@ function loadFirstQuestion() {
     var token = localStorage.getItem('jwt');
     
     // Wyślij żądanie HTTP POST do serwera
-    fetch('http://localhost:8080/api/quiz/...........', {
+    fetch('http://localhost:8080/api/quiz/questionSet', {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token,
@@ -34,18 +34,7 @@ function loadFirstQuestion() {
             }
         })
         .then(data => {
-            var inputElement = document.getElementById('login');
-            if (inputElement) {
-                inputElement.value = data.name;
-            }
-            inputElement = document.getElementById('password');
-            if (inputElement) {
-                inputElement.value = data.password;
-            }
-            inputElement = document.getElementById('email');
-            if (inputElement) {
-                inputElement.value = data.email;
-            }
+            console.log(data);
         })
         .catch(error => console.error('Błąd sieci:', error));
 }

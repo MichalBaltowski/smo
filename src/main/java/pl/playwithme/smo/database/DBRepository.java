@@ -8,10 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import pl.playwithme.smo.entity.Card;
+import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.entity.User;
 import pl.playwithme.smo.dto.LoginRequest;
 import pl.playwithme.smo.dto.SaveSettingsRequest;
+import pl.playwithme.smo.service.quiz.quizService;
 import pl.playwithme.smo.service.security.JwtTokenFacade;
 
 import java.security.InvalidParameterException;
@@ -22,6 +23,10 @@ public class DBRepository {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    quizService quizService;
+
 
     public ResponseEntity<User> getSettings(String authorizationHeader) {
         try {
@@ -90,15 +95,15 @@ public class DBRepository {
         }
     }
 
-    public ResponseEntity addCard(String authorizationHeader, Card card) {
+    public ResponseEntity addCard(String authorizationHeader, Question question) {
         try {
             validateJwt(authorizationHeader);
             jdbcTemplate.update("INSERT INTO question (question, answer, category, difficulty_level, study_level) VALUES (?,?,?,?,?)",
-                    card.getQuestion(),
-                    card.getAnswer(),
-                    card.getCategory(),
-                    card.getDifficultyLevel(),
-                    card.getStudyLevel());
+                    question.getQuestion(),
+                    question.getAnswer(),
+                    question.getCategory(),
+                    question.getDifficulty_level(),
+                    question.getStudy_level());
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -107,30 +112,17 @@ public class DBRepository {
         }
     }
 
-    public ResponseEntity getCard(String authorizationHeader) {
+    public ResponseEntity getQuestionSet(String auth) {
         try {
-            validateJwt(authorizationHeader);
-
-            return new ResponseEntity<>(HttpStatus.OK);
+            validateJwt(auth);
+            var questions = quizService.getQuestionSet();
+            return new ResponseEntity<List<Question>>(questions, HttpStatus.OK);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    public ResponseEntity prepareCardSet(String authorizationHeader) {
-        try {
-            validateJwt(authorizationHeader);
-
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (InvalidParameterException exception) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        } catch (DataAccessException exception) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
 
     private DecodedJWT validateJwt(String authorizationHeader) {
         return JwtTokenFacade.validate(getToken(authorizationHeader));

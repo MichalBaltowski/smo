@@ -3,7 +3,7 @@ package pl.playwithme.smo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.playwithme.smo.entity.Card;
+import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.database.DBRepository;
 
 
@@ -17,16 +17,12 @@ public class Quiz {
 
     @PostMapping("/addCard")
     public ResponseEntity add(@RequestHeader("Authorization") String authorizationHeader,
-                              @RequestBody Card card) {
-        return dbRepository.addCard(authorizationHeader, card);
+                              @RequestBody Question question) {
+        return dbRepository.addCard(authorizationHeader, question);
     }
 
-    @GetMapping("/getCard")
-    public ResponseEntity get(@RequestHeader("Authorization") String authorizationHeader) {
-        return dbRepository.getCard(authorizationHeader);
-    }
-
-    public ResponseEntity prepareCardSet(@RequestHeader("Authorization") String authorizationHeader) {
-        return dbRepository.prepareCardSet(authorizationHeader);
+    @GetMapping("/questionSet")
+    public ResponseEntity get(@RequestHeader("Authorization") String auth) {
+        return dbRepository.getQuestionSet(auth);
     }
 }
