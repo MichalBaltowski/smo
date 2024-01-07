@@ -13,6 +13,8 @@
 - Rozszerzenie zabezpieczeń o sprawdzanie zawartości tokena o issuer
 - {Frontend} Dodać obsługe otrzymanych pytań w quiz (pokazywanie samego pytania, pokazywanie odpowiedzi po kliknięciu,
   pokazywanie następnego pytania po kliknięciu)
+- Zmienić wywołania onclick na nasłuchiwanie zdarzeń w javascript(aby oddzielić strukture od zachowania)
+
 
 ## Backlog:
 - dodanie ekranu obsługującego przeglądanie fiszek
@@ -24,4 +26,3 @@
 
 ## Backlog - tech debt
 - używać zmiennych w css (dowiedzieć się jak to się robi, kiedy warto, jakie są dobre praktyki i to zastosować w projekcie)
-- Zmienić wywołania onclick na nasłuchiwanie zdarzeń w javascript(aby oddzielić strukture od zachowania)

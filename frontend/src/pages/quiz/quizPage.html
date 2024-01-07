@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../styles/quizPage/quizPage.css">
 </head>
 <body>
-	<div class="logo">MeetMe</div>
+	<div class="logo">Quiz</div>
 	<div class="main-container">
 		<div class="quiz-container">
 			<textarea class="textPanel" id="question" name="question"></textarea>
@@ -28,6 +28,11 @@
 		<div >
 			<button class="button" id="returnToQuizPage">Powrót</button>
 		</div>
+	</div>
+	<div class="popup-background" style="display:none;"></div>
+	<div class="popup" style="display:none;">
+		<p>Sesja wygasła</p>
+		<button id="closePopup">Wyloguj</button>
 	</div>	
 	<script src="../script/quizPage/quizPage.js"></script>
 </body>

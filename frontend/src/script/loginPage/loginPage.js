@@ -1,15 +1,12 @@
 document.querySelector('.loginButton').addEventListener('click', function() {
-    // Pobierz dane z formularza
     var loginForm = document.querySelector('.loginFormElement');
     var formData = new FormData(loginForm);
 
-    // Utwórz obiekt z danymi
     var loginData = {
         login: formData.get('login'),
         password: formData.get('password')
     };
 
-    // Wyślij żądanie HTTP POST do serwera
     fetch('http://localhost:8080/api/user/login', {
         method: 'POST',
         headers: {
@@ -29,5 +26,5 @@ document.querySelector('.loginButton').addEventListener('click', function() {
 		console.log('Zalogowano pomyślnie!');
 		window.location.assign('/main');
 	})
-    .catch(error => console.error('Błąd sieci:', error));
+    .catch(error => console.error('Błąd:', error));
 });

@@ -1,6 +1,6 @@
-function openCalendar() {
-    window.location.assign('/calendar')
-}
+document.getElementById('quiz').addEventListener('click', openQuizMenu);
+document.getElementById('settings').addEventListener('click', openSettings);
+document.getElementById('logOut').addEventListener('click', logOut);
 
 function openSettings() {
     window.location.assign('/settings');

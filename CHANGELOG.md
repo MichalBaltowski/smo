@@ -1,5 +1,5 @@
 
-# Finiszed 05.01.2024 
+# Finished 05.01.2024 
 * Dodanie nowego ekranu ekranu obsługującego menu quizu
 * Dodanie tabeli w bazie danych przechowującej pytania na rozmowy rekrutacyjne
 * Odbieranie id zalogowane użytkownika z tokenu jwt w usługach get i save settings

@@ -1,3 +1,7 @@
+document.getElementById('addCard').addEventListener('click', addCard);
+document.getElementById('openQuizMainPage').addEventListener('click', openQuizMainPage);
+document.getElementById('closePopup').addEventListener('click', closePopup);
+
 function openQuizMainPage() {
     window.location.assign('/quizMain');
 }
@@ -9,7 +13,7 @@ function addCard() {
 
 function createCardData() {
     console.log("Dodawanie fiszki");
-    var form = document.querySelector('.main-container');
+    var form = document.querySelector('.all-input-container');
     var formData = new FormData(form);
 
     var cardData = {
@@ -50,4 +54,17 @@ function send(cardData) {
 function clearInputs() {
     var inputs = document.querySelectorAll('.input-group textarea');
     inputs.forEach(input => { input.value = '';});
+}
+
+function showPopup() {
+    document.querySelector('.popup-background').style.display = 'block';
+    document.querySelector('.popup').style.display = 'block';
+}
+
+function closePopup() {
+    document.querySelector('.popup-background').style.display = 'none';
+    document.querySelector('.popup').style.display = 'none';
+    localStorage.removeItem('jwt');
+    window.location.assign('/login');
+    console.log("Wylogowano");
 }

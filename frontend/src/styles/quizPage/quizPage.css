@@ -1,10 +1,10 @@
 .main-container {
-    background-color: #ffffff;
+    width: 75vw;
+    background-color: #FFFFFF ;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px;
 }
 
 .buttons-container {
@@ -23,16 +23,30 @@ textarea {
 
 .button {
     display: block;
-    width: 200px;
+    width: 120px;
     margin: 10px auto;
-    padding: 15px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 18px;
     text-align: center;
     text-decoration: none;
-    background-color: #4CAF50;
+    background-color: #5783db;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#replayQuestion {
+    background-color: #c73c07;
+}
+#poorKnowledge {
+    
+}
+#moderateKnowledge {
+    background-color: #4CAF50;
+}
+#goodKnowledge {
+    background-color: #4CAF50;
 }

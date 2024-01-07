@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MeetWithMe</title>
+	<title>MeetMe</title>
 
 	<!-- Wspólne style -->
 	<link rel="stylesheet" href="../styles/common/common.css">
@@ -14,9 +14,8 @@
 </head>
 
 <body>
-	<div class="logo">MeetWithMe</div>
+	<div class="logo">MeetMe</div>
 	<div class="main-container">
-		<button class="button" onclick="openMainPage()">Menu</button>
 		<form class="settings-container">
 			<div class="input-container" id="login-container">
 				<label for="login">Login</label>
@@ -31,15 +30,16 @@
 				<input type="text" id="password" name="password" disabled>
 			</div>
 			<div class="submit-container" id="submit-container">
-				<input type="button" value="Edytuj" onclick="enableEditing()">
-				<input type="button" value="Zapisz" onclick="saveSettings()">
+				<input type="button" id="edit" value="Edytuj">
+				<input type="button" id="save" value="Zapisz">
 			</div>
 		</form>
+		<button class="button" id="openMainPage">Menu</button>
 	</div>
 	<div class="popup-background" style="display:none;"></div>
 	<div class="popup" style="display:none;">
 		<p>Sesja wygasła</p>
-		<button onclick="closePopup()">Wyloguj</button>
+		<button id="closePopup">Wyloguj</button>
 	</div>
 	<script src="../script/settingsPage/settingsPage.js"></script>
 </body>

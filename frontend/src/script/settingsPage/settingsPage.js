@@ -1,16 +1,20 @@
-function openMainPage() {
-    window.location.assign('/main');
-}
-
 window.addEventListener('load', function () {
     loadUserSettings();
 });
+
+document.getElementById('openMainPage').addEventListener('click', openMainPage);
+document.getElementById('edit').addEventListener('click', enableEditing);
+document.getElementById('save').addEventListener('click', saveSettings);
+document.getElementById('closePopup').addEventListener('click', closePopup);
+
+function openMainPage() {
+    window.location.assign('/main');
+}
 
 function loadUserSettings() {
     console.log("Pobranie danych użytkownika");
     var token = localStorage.getItem('jwt');
     
-    // Wyślij żądanie HTTP POST do serwera
     fetch('http://localhost:8080/api/user/settings', {
         method: 'GET',
         headers: {
@@ -64,7 +68,6 @@ function enableEditing() {
         var input = container.querySelector('input');
         input.disabled = false;
     });
-    console.log('edycja');
 }
 
 function saveSettings() {
@@ -96,7 +99,7 @@ function createSettingsObjectToSend() {
 
 function send(settingsData) {
     var token = localStorage.getItem('jwt');
-    // Wyślij żądanie HTTP POST do serwera
+
     fetch('http://localhost:8080/api/user/settings', {
         method: 'POST',
         headers: {

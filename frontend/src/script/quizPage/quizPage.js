@@ -8,6 +8,7 @@ document.getElementById('moderateKnowledge').addEventListener('click', handleMod
 document.getElementById('goodKnowledge').addEventListener('click', handleGoodKnowledge);
 document.getElementById('returnToQuizPage').addEventListener('click', openQuizMainPage);
 document.getElementById('showAnswer').addEventListener('click', handleShowAnswer);
+document.getElementById('closePopup').addEventListener('click', closePopup);
 
 function nextQuestion() {
     return questionIterator++;
@@ -94,4 +95,17 @@ function handleShowAnswer() {
     if(answerInput != null) {
         answerInput.textContent = question.answer;
     }
+}
+
+function showPopup() {
+    document.querySelector('.popup-background').style.display = 'block';
+    document.querySelector('.popup').style.display = 'block';
+}
+
+function closePopup() {
+    document.querySelector('.popup-background').style.display = 'none';
+    document.querySelector('.popup').style.display = 'none';
+    localStorage.removeItem('jwt');
+    window.location.assign('/login');
+    console.log("Wylogowano");
 }
