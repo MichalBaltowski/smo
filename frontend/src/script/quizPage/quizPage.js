@@ -76,6 +76,12 @@ function loadNextQuestion() {
     buttons.forEach(function(element) {
         element.style.display = 'none';
     });
+
+    var cardCounter = document.getElementById('cardCounter');
+    if (cardCounter != null) {
+        let countOfCardsLeft = questionArray.length - questionIterator;
+        cardCounter.textContent = "Pozostało " + countOfCardsLeft + " kart";
+    }
 }
 
 function handlePoorKnowledge() {

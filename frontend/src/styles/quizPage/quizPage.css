@@ -48,3 +48,7 @@ textarea {
 #goodKnowledge {
     background-color: #4CAF50;
 }
+
+#cardCounter {
+    text-align: right;
+}
