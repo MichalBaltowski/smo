@@ -1,11 +1,12 @@
 .buttons-container {
     width: 25vw;
-    height: 30vh;
+    min-height: 30vh;
     padding: 20px;
     text-align: center;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: auto; /* Zapewnia, że zawartość nie wyjdzie poza kontener */
 }
 
 .buttons-container {

@@ -41,3 +41,8 @@ app.get("/quiz", (req, res) => {
   const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "quizPage.html");
   res.sendFile(addCardPagePath);
 });
+
+app.get("/quizSettings", (req, res) => {
+  const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "quizSettings.html");
+  res.sendFile(addCardPagePath);
+});

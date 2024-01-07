@@ -8,6 +8,7 @@
     text-align: center;
     width: 80%; /* Dostosuj szerokość według potrzeb */
     margin: 0 auto; /* Ustawienie marginesów na auto, aby centrować */
+    overflow: auto; /* Zapewnia, że zawartość nie wyjdzie poza kontener */
 }
 
 .button {
