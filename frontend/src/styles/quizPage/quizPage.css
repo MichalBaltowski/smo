@@ -38,15 +38,13 @@ textarea {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#replayQuestion {
+#poorKnowledge {
     background-color: #c73c07;
 }
-#poorKnowledge {
-    
-}
 #moderateKnowledge {
-    background-color: #4CAF50;
+    background-color: #d6ce32;
 }
+
 #goodKnowledge {
     background-color: #4CAF50;
 }

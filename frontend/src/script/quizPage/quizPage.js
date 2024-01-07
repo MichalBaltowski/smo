@@ -2,7 +2,6 @@ let questionArray;
 let question;
 let questionIterator = 0;
 
-document.getElementById('replayQuestion').addEventListener('click', handleReplay);
 document.getElementById('poorKnowledge').addEventListener('click', handlePoorKnowledge);
 document.getElementById('moderateKnowledge').addEventListener('click', handleModerateKnowledge);
 document.getElementById('goodKnowledge').addEventListener('click', handleGoodKnowledge);
@@ -58,19 +57,25 @@ async function loadQuestionArray() {
 function loadNextQuestion() {
     console.log("Ładowanie kolejnego pytania");
     question = questionArray[nextQuestion()];
-  
+
     var questionInput = document.getElementById('question');
-    if(questionInput != null) {
+    if (questionInput != null) {
         questionInput.textContent = question.question;
     }
     var answerInput = document.getElementById('answer');
-    if(answerInput != null) {
+    if (answerInput != null) {
         answerInput.textContent = "";
     }
-}
 
-function handleReplay() {
-    console.log('Użytkownik chce powtórzyć zagadnienie.');
+    var showAnswerButton = document.getElementById('showAnswer');
+    if (showAnswerButton != null) {
+        showAnswerButton.style.display = 'block';
+    }
+
+    var buttons = document.querySelectorAll('.buttons-container')
+    buttons.forEach(function(element) {
+        element.style.display = 'none';
+    });
 }
 
 function handlePoorKnowledge() {
@@ -92,9 +97,12 @@ function handleShowAnswer() {
     console.log('Użytkownik chce poznać odpowiedź.');
     var answerInput = document.getElementById('answer');
 
-    if(answerInput != null) {
+    if (answerInput != null) {
         answerInput.textContent = question.answer;
     }
+
+    this.style.display = 'none'; // Ukrywa przycisk 'Pokaż odpowiedź'
+    document.querySelector('.buttons-container').style.display = 'block';
 }
 
 function showPopup() {
