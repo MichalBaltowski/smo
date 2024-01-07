@@ -35,7 +35,21 @@ body {
 }
 
 /* Styl dla popupu */
-.popup {
+.quizFinishPopup {
+    display: none; /* Ukryty domyślnie */
+    position: fixed; /* Pozycjonowanie względem okna przeglądarki */
+    left: 50%; /* Centrowanie w poziomie */
+    top: 50%; /* Centrowanie w pionie */
+    transform: translate(-50%, -50%); /* Przesunięcie w lewo i w górę o połowę szerokości i wysokości elementu */
+    border: 1px solid #000; /* Cienka czarna ramka */
+    background-color: white; /* Białe tło */
+    padding: 20px; /* Odstępy wewnątrz popupu */
+    z-index: 1000; /* Z-index ustawiony na wartość wyższą niż tło, aby popup był na wierzchu */
+    /* Możesz dodać więcej stylów, takich jak szerokość, cień itp. */
+}
+
+/* Styl dla popupu */
+.logOutPopup {
     display: none; /* Ukryty domyślnie */
     position: fixed; /* Pozycjonowanie względem okna przeglądarki */
     left: 50%; /* Centrowanie w poziomie */
