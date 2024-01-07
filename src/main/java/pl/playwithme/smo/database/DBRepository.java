@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import pl.playwithme.smo.dto.QuizResult;
 import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.entity.User;
 import pl.playwithme.smo.dto.LoginRequest;
@@ -129,4 +130,15 @@ public class DBRepository {
         return authorizationHeader.substring(7);
     }
 
+    public ResponseEntity getQuizResult(String auth, List<QuizResult> result) {
+        try {
+            validateJwt(auth);
+            System.out.println("Przyjęto odpowiedź" + result);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

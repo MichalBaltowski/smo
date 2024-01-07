@@ -56,6 +56,33 @@ async function loadQuestionArray() {
     }
 }
 
+async function sendQuizResult() {
+    console.log("Wysłanie wyników quizu");
+    var token = localStorage.getItem('jwt');
+
+    try {
+        let response = await fetch('http://localhost:8080/api/quiz/sendQuizResult', {
+            method: 'POST',
+            body: JSON.stringify(responseArray),
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.accepted) {
+            
+        } else if (response.status === 401) {
+            showLogOutPopup();
+            console.error('Błąd autoryzacji: Nieautoryzowany dostęp (401).');
+        } else {
+            console.error('Błąd.');
+        }
+    } catch (error) {
+        console.error('Błąd przy wywołaniu http://localhost:8080/api/quiz/sendQuizResult :', error);
+    }
+}
+
 function loadNextQuestion() {
     console.log("Ładowanie kolejnego pytania");
     question = questionArray[nextQuestion()];
@@ -63,6 +90,7 @@ function loadNextQuestion() {
     if(question == null) {
         console.log("Koniec Quizu");
         showQuizFinishPopup();
+        sendQuizResult();
     }
 
     var questionInput = document.getElementById('question');
@@ -125,8 +153,8 @@ function createResponseRecord(userChoice) {
 function createNewRecord(userChoice) {
     var newRecord = {
         questionId: question.id,
-        userChoice: userChoice,
-        date: getCurrentDate()
+        userChoice: userChoice
+        //date: getCurrentDate()
     };
     return newRecord
 }

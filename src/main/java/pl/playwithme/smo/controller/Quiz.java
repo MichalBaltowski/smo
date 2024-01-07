@@ -3,8 +3,11 @@ package pl.playwithme.smo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.playwithme.smo.dto.QuizResult;
 import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.database.DBRepository;
+
+import java.util.List;
 
 
 @RestController
@@ -24,5 +27,11 @@ public class Quiz {
     @GetMapping("/questionSet")
     public ResponseEntity get(@RequestHeader("Authorization") String auth) {
         return dbRepository.getQuestionSet(auth);
+    }
+
+    @PostMapping("/sendQuizResult")
+    public ResponseEntity getQuizResult(@RequestHeader("Authorization") String auth,
+                              @RequestBody List<QuizResult> result) {
+        return dbRepository.getQuizResult(auth, result);
     }
 }
