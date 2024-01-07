@@ -2,8 +2,6 @@
 
 
 ## Todo:
-- {Frontend} Dodać obsługe otrzymanych pytań w quiz (pokazywanie samego pytania, pokazywanie odpowiedzi po kliknięciu, 
-  pokazywanie następnego pytania po kliknięciu)
 - {DB}Dodać wszystkie pytania do bazy danych
 - {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
 
@@ -13,7 +11,8 @@
 - dodanie endpoita do pobrania pytań do quizu
 - użycie hibernate przy pobieraniu pytań z bazy danych
 - Rozszerzenie zabezpieczeń o sprawdzanie zawartości tokena o issuer
-
+- {Frontend} Dodać obsługe otrzymanych pytań w quiz (pokazywanie samego pytania, pokazywanie odpowiedzi po kliknięciu,
+  pokazywanie następnego pytania po kliknięciu)
 
 ## Backlog:
 - dodanie ekranu obsługującego przeglądanie fiszek

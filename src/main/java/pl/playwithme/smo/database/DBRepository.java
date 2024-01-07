@@ -95,15 +95,11 @@ public class DBRepository {
         }
     }
 
-    public ResponseEntity addCard(String authorizationHeader, Question question) {
+    public ResponseEntity addCard(String auth, Question question) {
         try {
-            validateJwt(authorizationHeader);
-            jdbcTemplate.update("INSERT INTO question (question, answer, category, difficulty_level, study_level) VALUES (?,?,?,?,?)",
-                    question.getQuestion(),
-                    question.getAnswer(),
-                    question.getCategory(),
-                    question.getDifficulty_level(),
-                    question.getStudy_level());
+            validateJwt(auth);
+            quizService.addQuestion(question);
+
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -116,7 +112,8 @@ public class DBRepository {
         try {
             validateJwt(auth);
             var questions = quizService.getQuestionSet();
-            return new ResponseEntity<List<Question>>(questions, HttpStatus.OK);
+
+            return new ResponseEntity<>(questions, HttpStatus.OK);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (DataAccessException exception) {

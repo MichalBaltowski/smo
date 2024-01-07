@@ -16,9 +16,9 @@ public class Quiz {
     DBRepository dbRepository;
 
     @PostMapping("/addCard")
-    public ResponseEntity add(@RequestHeader("Authorization") String authorizationHeader,
+    public ResponseEntity add(@RequestHeader("Authorization") String auth,
                               @RequestBody Question question) {
-        return dbRepository.addCard(authorizationHeader, question);
+        return dbRepository.addCard(auth, question);
     }
 
     @GetMapping("/questionSet")

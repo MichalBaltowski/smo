@@ -18,4 +18,8 @@ public class quizService {
     public List<Question> getQuestionSet() {
         return repository.findAll();
     }
+
+    public void addQuestion(Question question) {
+        repository.save(question);
+    }
 }

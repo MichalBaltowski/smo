@@ -12,8 +12,8 @@ import java.sql.Date;
 public class Question {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "question_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "question_id")
     private Long id;
 
     @Column(name = "question", nullable = false, length = 150)
