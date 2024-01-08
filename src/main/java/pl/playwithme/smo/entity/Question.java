@@ -1,14 +1,19 @@
 package pl.playwithme.smo.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 @Entity
 @Data
 @Table(name = "question")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Question {
 
     @Id
@@ -26,7 +31,7 @@ public class Question {
     private String category;
     private int difficulty_level;
     private int study_level;
-    private Date last_activation_date;
+    private LocalDate last_activation_date;
 
     public String getId() {
         return String.valueOf(id);
