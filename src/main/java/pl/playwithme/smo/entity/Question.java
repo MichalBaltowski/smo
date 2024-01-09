@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.playwithme.smo.dto.KnowledgeLevel;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -30,7 +31,7 @@ public class Question {
 
     private String category;
     private int difficulty_level;
-    private int study_level;
+    private KnowledgeLevel study_level;
     private LocalDate last_activation_date;
 
     public String getId() {
