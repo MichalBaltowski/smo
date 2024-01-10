@@ -1,4 +1,4 @@
-package pl.playwithme.smo.service.quiz;
+package pl.playwithme.smo.service.quiz.db;
 
 import org.springframework.stereotype.Service;
 import pl.playwithme.smo.entity.Question;

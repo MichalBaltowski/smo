@@ -2,18 +2,15 @@
 
 
 ## Todo:
+- {Backend} Skonstruować lepszy sposób przyznawania punktów za nauke
+- {Backend} Skonstruować serwis/klasę do tworzenia kolekcji zmatchowanych rekordów bo question id
+- {Backend} Skonstruować serwis/klasę do tworzenia kolekcji z wynikiem który będzie przetworzony w bazie danych
+- {Backend} Skonstruować serwis/klasę do wrzucania nowych wyników do bazy
 - {DB}Dodać wszystkie pytania do bazy danych
 - {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
 
 ## Done:
-- dodanie ekranu obsługującego quiz (przeklikiwanie fiszek)
-- pousuwać usługi które nie są używane
-- dodanie endpoita do pobrania pytań do quizu
-- użycie hibernate przy pobieraniu pytań z bazy danych
-- Rozszerzenie zabezpieczeń o sprawdzanie zawartości tokena o issuer
-- {Frontend} Dodać obsługe otrzymanych pytań w quiz (pokazywanie samego pytania, pokazywanie odpowiedzi po kliknięciu,
-  pokazywanie następnego pytania po kliknięciu)
-- Zmienić wywołania onclick na nasłuchiwanie zdarzeń w javascript(aby oddzielić strukture od zachowania)
+
 
 
 ## Backlog:

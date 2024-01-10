@@ -13,7 +13,7 @@ import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.entity.User;
 import pl.playwithme.smo.dto.LoginRequest;
 import pl.playwithme.smo.dto.SaveSettingsRequest;
-import pl.playwithme.smo.service.quiz.quizService;
+import pl.playwithme.smo.service.quiz.db.quizService;
 import pl.playwithme.smo.service.security.JwtTokenFacade;
 
 import java.security.InvalidParameterException;
