@@ -1,6 +1,6 @@
 package pl.playwithme.smo.dto;
 
-public enum KnowledgeLevel {
+public enum QuestionLevel {
     zero(0),
     first(12),
     second(24),
@@ -8,7 +8,7 @@ public enum KnowledgeLevel {
     fourth(48);
 
     private final int value;
-    KnowledgeLevel(int value) {
+    QuestionLevel(int value) {
         this.value = value;
     }
 
