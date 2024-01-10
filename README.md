@@ -1,8 +1,8 @@
 # MeetMe
 
 
-## Todo:
-- {Backend} Skonstruować lepszy sposób przyznawania punktów za nauke
+## Todo Sprint_1 <8-01;14.01>:
+
 - {Backend} Skonstruować serwis/klasę do tworzenia kolekcji zmatchowanych rekordów bo question id
 - {Backend} Skonstruować serwis/klasę do tworzenia kolekcji z wynikiem który będzie przetworzony w bazie danych
 - {Backend} Skonstruować serwis/klasę do wrzucania nowych wyników do bazy
@@ -10,7 +10,7 @@
 - {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
 
 ## Done:
-
+- {Backend} Skonstruować lepszy sposób przyznawania punktów za nauke
 
 
 ## Backlog:
