@@ -2,7 +2,7 @@
 
 
 ## Todo Sprint_1 <8-01;14.01>:
-
+- {Backend} Zaimplementować nowy sposób przyznawania punktów za nauke
 - {Backend} Skonstruować serwis/klasę do tworzenia kolekcji zmatchowanych rekordów bo question id
 - {Backend} Skonstruować serwis/klasę do tworzenia kolekcji z wynikiem który będzie przetworzony w bazie danych
 - {Backend} Skonstruować serwis/klasę do wrzucania nowych wyników do bazy
@@ -11,6 +11,7 @@
 
 ## Done:
 - {Backend} Skonstruować lepszy sposób przyznawania punktów za nauke
+- {Backend} Zaimplementować nowy sposób przyznawania punktów za nauke
 
 
 ## Backlog:

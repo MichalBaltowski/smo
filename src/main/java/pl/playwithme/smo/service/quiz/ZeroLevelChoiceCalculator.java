@@ -6,8 +6,8 @@ public class ZeroLevelChoiceCalculator implements ChoiceCalculator {
 
     private final UserChoice choice;
     private final int currentScore;
-    private final int GOOD_CHOICE_VALUE = 12;
-    private final int MEDIUM_CHOICE_VALUE = 10;
+    private final int GOOD_CHOICE_VALUE = 10;
+    private final int MEDIUM_CHOICE_VALUE = 5;
 
     ZeroLevelChoiceCalculator(UserChoice _choice, int _currentScore) {
         choice = _choice;

@@ -6,9 +6,9 @@ public class ThirdLevelChoiceCalculator implements ChoiceCalculator{
 
     private final UserChoice choice;
     private final int currentScore;
-    private final int GOOD_CHOICE_VALUE = 12;
-    private final int MEDIUM_CHOICE_VALUE = 3;
-    private final int BAD_CHOICE_VALUE = 24;
+    private final int GOOD_CHOICE_VALUE = 25;
+    private final int MEDIUM_CHOICE_VALUE = 5;
+    private final int BAD_CHOICE_VALUE = 25;
 
     ThirdLevelChoiceCalculator(UserChoice _choice, int _currentScore) {
         choice = _choice;
@@ -25,7 +25,7 @@ public class ThirdLevelChoiceCalculator implements ChoiceCalculator{
                 return currentScore + MEDIUM_CHOICE_VALUE;
             }
             case bad -> {
-                return currentScore - BAD_CHOICE_VALUE;
+                return BAD_CHOICE_VALUE;
             }
         }
         return 0;

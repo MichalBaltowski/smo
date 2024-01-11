@@ -16,13 +16,13 @@ class Score {
     QuestionLevel getQuestionLevel() {
         if (questionScore == 0) {
             return QuestionLevel.zero;
-        } else if (questionScore <= 12) {
+        } else if (questionScore <= 10) {
             return QuestionLevel.first;
-        } else if (questionScore <= 24) {
+        } else if (questionScore <= 25) {
             return QuestionLevel.second;
-        } else if (questionScore <= 36) {
+        } else if (questionScore <= 45) {
             return QuestionLevel.third;
-        } else if (questionScore <= 48) {
+        } else if (questionScore <= 100) {
             return QuestionLevel.fourth;
         } else {
             throw new RuntimeException("Bad question score, allowed value scope <0;48>");
@@ -30,8 +30,8 @@ class Score {
     }
 
     private int validateScore(int questionScore) {
-        if (questionScore < 0 || questionScore > 48) {
-            throw new RuntimeException("Bad question score, allowed value scope <0;48>");
+        if (questionScore < 0 || questionScore > 100) {
+            throw new RuntimeException("Bad question score, allowed value scope <0;100>");
         }
         return questionScore;
     }
