@@ -4,20 +4,25 @@ import org.springframework.stereotype.Service;
 import pl.playwithme.smo.dto.QuizResult;
 import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.service.quiz.exception.BadMatchQuestionIDException;
+import pl.playwithme.smo.service.quiz.score.ScoreCalculatorFactory;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class NewScoreService {
 
+    private final ScoreCalculatorFactory calcFactory;
+    NewScoreService(ScoreCalculatorFactory calcFactory) {
+        this.calcFactory = calcFactory;
+    }
     public void calculateNewScore(List<QuizResult> result, List<Question> question) {
-        //match result and question by question id
-        var someCollection = createSomeCollection(result, question);
+        var resultDataList = createSomeCollection(result, question);
 
+        for (ResultData res : resultDataList) {
+            var newScore = calcFactory.getCalculator(res).calculateNewScore(res);
+        }
         //calculate new score for question id
 //        var newScoreCollection = Arrays.stream(someCollection).
 //                map(record.id -> temp(record))
@@ -27,37 +32,36 @@ public class NewScoreService {
         // EnterDataToDB(newScoreCollection)
     }
 
-    public List<tempValueObject> createSomeCollection(List<QuizResult> result, List<Question> question) {
 
-        if(result.size() != question.size()) {
+
+    public int calculateNewScore(ResultData result) {
+        return choice.calculateNewLevel();
+    }
+
+    public List<ResultData> createSomeCollection(List<QuizResult> result, List<Question> question) {
+
+        if (result.size() != question.size()) {
             throw new BadMatchQuestionIDException();
         }
 
-        var sortedResult = result.stream().sorted(Comparator.comparing(QuizResult::getQuestionId)).toList();
-        var sortedQuestion = question.stream().sorted().toList();
-        List<tempValueObject> tempCol = new ArrayList<>();
+        List<ResultData> resulCollection = new ArrayList<>();
+        var sortedResult = result
+                .stream()
+                .sorted(Comparator.comparing(QuizResult::getQuestionId))
+                .toList();
+
         for (var res : sortedResult) {
             var questionId = res.getQuestionId();
             var userChoice = res.getUserChoice();
-            var questionScore = sortedQuestion
+            var questionScore = question
                     .stream()
                     .filter(result1 -> result1.getId() == questionId)
                     .findFirst()
                     .get()
                     .getStudy_score();
-            var newObject = new tempValueObject(questionId, userChoice, questionScore);
-            tempCol.add(newObject);
+            var newMatchedRecord = new ResultData(questionId, userChoice, questionScore);
+            resulCollection.add(newMatchedRecord);
         }
-        return tempCol;
-    }
-
-    public int temp(QuizResult result, Question question) {
-        if (question.getId() != result.getQuestionId()) {
-            throw new BadMatchQuestionIDException();
-        }
-        var score = new Score(question.getStudy_score());
-        var choice = new Choice(score, result.getUserChoice());
-
-        return choice.calculateNewLevel();
+        return resulCollection;
     }
 }

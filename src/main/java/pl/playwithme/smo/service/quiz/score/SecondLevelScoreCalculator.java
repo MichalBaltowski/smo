@@ -1,16 +1,19 @@
-package pl.playwithme.smo.service.quiz;
+package pl.playwithme.smo.service.quiz.score;
 
+import org.springframework.stereotype.Service;
 import pl.playwithme.smo.dto.UserChoice;
+import pl.playwithme.smo.service.quiz.score.ScoreCalculator;
 
-public class FourthLevelChoiceCalculator implements ChoiceCalculator {
+@Service
+public class SecondLevelScoreCalculator implements ScoreCalculator {
 
     private final UserChoice choice;
     private final int currentScore;
-    private final int GOOD_CHOICE_VALUE = 15;
+    private final int GOOD_CHOICE_VALUE = 20;
     private final int MEDIUM_CHOICE_VALUE = 5;
-    private final int BAD_CHOICE_VALUE = 45;
+    private final int BAD_CHOICE_VALUE = 10;
 
-    FourthLevelChoiceCalculator(UserChoice _choice, int _currentScore) {
+    SecondLevelScoreCalculator(UserChoice _choice, int _currentScore) {
         choice = _choice;
         currentScore = _currentScore;
     }
@@ -19,12 +22,7 @@ public class FourthLevelChoiceCalculator implements ChoiceCalculator {
     public int calculateNewScore() {
         switch (choice) {
             case good -> {
-                var result = currentScore + GOOD_CHOICE_VALUE;
-                if (result >= 100) {
-                    return 100;
-                } else {
-                    return  result;
-                }
+                return currentScore + GOOD_CHOICE_VALUE;
             }
             case medium -> {
                 return currentScore + MEDIUM_CHOICE_VALUE;

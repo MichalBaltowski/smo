@@ -1,15 +1,18 @@
-package pl.playwithme.smo.service.quiz;
+package pl.playwithme.smo.service.quiz.score;
 
+import org.springframework.stereotype.Service;
 import pl.playwithme.smo.dto.UserChoice;
+import pl.playwithme.smo.service.quiz.score.ScoreCalculator;
 
-public class ZeroLevelChoiceCalculator implements ChoiceCalculator {
+@Service
+public class ZeroLevelScoreCalculator implements ScoreCalculator {
 
     private final UserChoice choice;
     private final int currentScore;
     private final int GOOD_CHOICE_VALUE = 10;
     private final int MEDIUM_CHOICE_VALUE = 5;
 
-    ZeroLevelChoiceCalculator(UserChoice _choice, int _currentScore) {
+    ZeroLevelScoreCalculator(UserChoice _choice, int _currentScore) {
         choice = _choice;
         currentScore = _currentScore;
     }

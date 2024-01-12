@@ -83,20 +83,6 @@ class newScoreCalculatorTest {
         );
     }
 
-
-    @Test
-    void matchQuestion() {
-        QuizResult goodQuizResult = new QuizResult(2, UserChoice.good);
-        Question question = new Question(1L, "", "", "", 0, 0, LocalDate.now());
-
-        Exception exception = assertThrows(
-                BadMatchQuestionIDException.class,
-                () -> {
-                    service.temp(goodQuizResult, question);
-                }
-        );
-    }
-
     @Test
     void calcNewLevelAfterGoodChoiceFrom0() {
         QuizResult goodQuizResult = new QuizResult(1, UserChoice.good);
