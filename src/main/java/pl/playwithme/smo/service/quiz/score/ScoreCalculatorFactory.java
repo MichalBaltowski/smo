@@ -29,13 +29,13 @@ public final class ScoreCalculatorFactory {
 
     public ScoreCalculator getCalculator(ResultData res) {
         var score = res.getQuestionScore();
-        if (score == 0) {
+        if (score <= 9) {
             return zeroCalc;
-        } else if (score <= 10) {
+        } else if (score <= 24) {
             return firstCalc;
-        } else if (score <= 25) {
+        } else if (score <= 44) {
             return secondCalc;
-        } else if (score <= 45) {
+        } else if (score <= 69) {
             return thirdCalc;
         } else if (score <= 100) {
             return fourthCalc;

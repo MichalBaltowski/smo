@@ -32,12 +32,6 @@ public class NewScoreService {
         // EnterDataToDB(newScoreCollection)
     }
 
-
-
-    public int calculateNewScore(ResultData result) {
-        return choice.calculateNewLevel();
-    }
-
     public List<ResultData> createSomeCollection(List<QuizResult> result, List<Question> question) {
 
         if (result.size() != question.size()) {
