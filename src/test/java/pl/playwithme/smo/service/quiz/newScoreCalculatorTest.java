@@ -7,7 +7,6 @@ import pl.playwithme.smo.dto.QuizResult;
 import pl.playwithme.smo.dto.UserChoice;
 import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.service.quiz.exception.BadMatchQuestionIDException;
-import pl.playwithme.smo.service.quiz.score.FirstLevelScoreCalculator;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ class newScoreCalculatorTest {
         questions.add(thirdQuestion);
         questions.add(fourthQuestion);
 
-        var result = service.createSomeCollection(quizResults, questions);
+        var result = service.createResultDataCol(quizResults, questions);
         assertEquals(2, result.get(0).getQuestioniD());
         assertEquals(13, result.get(1).getQuestioniD());
         assertEquals(15, result.get(2).getQuestioniD());
@@ -79,7 +78,7 @@ class newScoreCalculatorTest {
         Exception exception = assertThrows(
                 BadMatchQuestionIDException.class,
                 () -> {
-                    service.createSomeCollection(quizResults, questions);
+                    service.createResultDataCol(quizResults, questions);
                 }
         );
     }

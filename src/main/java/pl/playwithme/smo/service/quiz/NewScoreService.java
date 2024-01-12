@@ -6,38 +6,24 @@ import pl.playwithme.smo.entity.Question;
 import pl.playwithme.smo.service.quiz.exception.BadMatchQuestionIDException;
 import pl.playwithme.smo.service.quiz.score.ScoreCalculatorFactory;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class NewScoreService {
-
     private final ScoreCalculatorFactory calcFactory;
+
     NewScoreService(ScoreCalculatorFactory calcFactory) {
         this.calcFactory = calcFactory;
     }
-    public void calculateNewScore(List<QuizResult> result, List<Question> question) {
-        var resultDataList = createSomeCollection(result, question);
 
-        for (ResultData res : resultDataList) {
-            var newScore = calcFactory.getCalculator(res).calculateNewScore(res);
-        }
-        //calculate new score for question id
-//        var newScoreCollection = Arrays.stream(someCollection).
-//                map(record.id -> temp(record))
-//                .collect(Collectors.toList());
-
-        //pass new score to database for questions
-        // EnterDataToDB(newScoreCollection)
+    public Map<Integer, Integer> calculateNewScore(List<QuizResult> result, List<Question> question) {
+        validateData(result, question);
+        var resultDataList = createResultDataCol(result, question);
+        return createNewScoreCol(resultDataList);
     }
 
-    public List<ResultData> createSomeCollection(List<QuizResult> result, List<Question> question) {
-
-        if (result.size() != question.size()) {
-            throw new BadMatchQuestionIDException();
-        }
-
+    public List<ResultData> createResultDataCol(List<QuizResult> result, List<Question> question) {
         List<ResultData> resulCollection = new ArrayList<>();
         var sortedResult = result
                 .stream()
@@ -57,5 +43,23 @@ public class NewScoreService {
             resulCollection.add(newMatchedRecord);
         }
         return resulCollection;
+    }
+
+    private void validateData(List<QuizResult> result, List<Question> question) {
+        if (result.size() != question.size()) {
+            throw new BadMatchQuestionIDException();
+        }
+    }
+
+    private Map<Integer, Integer> createNewScoreCol(List<ResultData> resultDataList) {
+        return resultDataList.stream()
+                .collect(Collectors.toMap(
+                        res -> res.getQuestioniD(),
+                        res -> calcNewScore(res)
+                ));
+    }
+
+    private int calcNewScore(ResultData res) {
+        return calcFactory.getCalculator(res).calculateNewScore(res);
     }
 }
