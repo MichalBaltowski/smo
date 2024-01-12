@@ -6,7 +6,6 @@ import pl.playwithme.smo.service.quiz.*;
 @Service
 public final class ScoreCalculatorFactory {
 
-
     private final ZeroLevelScoreCalculator zeroCalc;
     private final FirstLevelScoreCalculator firstCalc;
     private final SecondLevelScoreCalculator secondCalc;
