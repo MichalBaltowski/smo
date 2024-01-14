@@ -13,6 +13,7 @@ import pl.playwithme.smo.quiz.entity.Question;
 import pl.playwithme.smo.entity.User;
 import pl.playwithme.smo.dto.LoginRequest;
 import pl.playwithme.smo.dto.SaveSettingsRequest;
+import pl.playwithme.smo.quiz.prepare.TempService;
 import pl.playwithme.smo.quiz.service.NewScoreService;
 import pl.playwithme.smo.quiz.repository.QuizService;
 import pl.playwithme.smo.quiz.service.QuestionService;
@@ -33,6 +34,8 @@ public class DBRepository {
     @Autowired
     NewScoreService newScoreService;
 
+    @Autowired
+    TempService tempService;
     @Autowired
     QuestionService questionService;
 
@@ -119,7 +122,8 @@ public class DBRepository {
     public ResponseEntity getQuestionSet(String auth) {
         try {
             validateJwt(auth);
-            var questions = quizService.getQuestionSet();
+            var ids = tempService.tempPrepare();
+            var questions = quizService.getQuestionSet(ids);
 
             return new ResponseEntity<>(questions, HttpStatus.OK);
         } catch (InvalidParameterException exception) {

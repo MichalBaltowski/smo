@@ -1,49 +1,49 @@
 package pl.playwithme.smo.quiz.repository;
 
-import jakarta.persistence.EntityManager;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl;
-import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pl.playwithme.smo.quiz.entity.Question;
+import pl.playwithme.smo.quiz.entity.QuizSettings;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class QuizService {
 
-    private final QuestionRepository repository;
+    private final QuestionRepository questionRepository;
+    private final QuizSettingsRepository quizSettingsRepository;
 
-    QuizService(QuestionRepository repo) {
-        repository = repo;
+    QuizService(QuestionRepository questionRepo,
+                QuizSettingsRepository quizSettingsRepo) {
+        questionRepository = questionRepo;
+        quizSettingsRepository = quizSettingsRepo;
     }
 
     public List<Question> getQuestionSet() {
-        //return repository.findAll();
-        var temp = new ArrayList<Long>();
-        temp.add(1L);
-        temp.add(2L);
-        return repository.findAllById(temp);
+        return questionRepository.findAll();
     }
 
     public List<Question> getQuestionSet(List<Long> ids) {
-        return repository.findAllById(ids);
+        return questionRepository.findAllById(ids);
     }
 
     public void addQuestion(Question question) {
-        repository.save(question);
+        questionRepository.save(question);
     }
 
     public void enterNewData(Map<Long, Integer> resColl) {
         resColl.forEach((questionId, newScore) -> {
-            var question = repository.findById(questionId).get();
+            var question = questionRepository.findById(questionId).get();
             question.setScore(newScore);
-            repository.save(question);
+            questionRepository.save(question);
         });
+    }
 
+    public List<QuizSettings> getSettings() {
+        return quizSettingsRepository.findAll();
+    }
+
+    public void addSettings(QuizSettings settings) {
+        quizSettingsRepository.save(settings);
     }
 }

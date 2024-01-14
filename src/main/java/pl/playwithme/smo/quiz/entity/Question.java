@@ -12,7 +12,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@DynamicUpdate
 @Table(name = "question")
 public class Question {
 
