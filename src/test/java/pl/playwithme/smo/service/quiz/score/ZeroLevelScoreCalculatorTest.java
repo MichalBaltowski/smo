@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.playwithme.smo.dto.UserChoice;
-import pl.playwithme.smo.service.quiz.ResultData;
+import pl.playwithme.smo.quiz.score.ResultData;
+import pl.playwithme.smo.quiz.score.ZeroLevelScoreCalculator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +18,7 @@ class ZeroLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterGoodChoice() {
         //given
-        var resultData = new ResultData(1, UserChoice.good, 0);
+        var resultData = new ResultData(1l, UserChoice.good, 0);
         //when
         var newScore = zeroLevelScoreCalculator.calculateNewScore(resultData);
         //then
@@ -27,7 +28,7 @@ class ZeroLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterMediumChoice() {
         //given
-        var resultData = new ResultData(1, UserChoice.medium, 0);
+        var resultData = new ResultData(1l, UserChoice.medium, 0);
         //when
         var newScore = zeroLevelScoreCalculator.calculateNewScore(resultData);
         //then
@@ -37,7 +38,7 @@ class ZeroLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterBadChoice1() {
         //given
-        var resultData = new ResultData(1, UserChoice.bad, 0);
+        var resultData = new ResultData(1l, UserChoice.bad, 0);
         //when
         var newScore = zeroLevelScoreCalculator.calculateNewScore(resultData);
         //then
@@ -47,7 +48,7 @@ class ZeroLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterBadChoice2() {
         //given
-        var resultData = new ResultData(1, UserChoice.bad, 9);
+        var resultData = new ResultData(1l, UserChoice.bad, 9);
         //when
         var newScore = zeroLevelScoreCalculator.calculateNewScore(resultData);
         //then

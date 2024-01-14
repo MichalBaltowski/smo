@@ -9,7 +9,7 @@ import lombok.Getter;
 @Getter
 public class QuizResult {
 
-    private int questionId;
+    private Long questionId;
     private UserChoice userChoice;
 }
 

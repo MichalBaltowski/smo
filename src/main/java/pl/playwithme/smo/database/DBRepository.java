@@ -9,11 +9,13 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.playwithme.smo.dto.QuizResult;
-import pl.playwithme.smo.entity.Question;
+import pl.playwithme.smo.quiz.entity.Question;
 import pl.playwithme.smo.entity.User;
 import pl.playwithme.smo.dto.LoginRequest;
 import pl.playwithme.smo.dto.SaveSettingsRequest;
-import pl.playwithme.smo.service.quiz.db.quizService;
+import pl.playwithme.smo.quiz.service.NewScoreService;
+import pl.playwithme.smo.quiz.repository.QuizService;
+import pl.playwithme.smo.quiz.service.QuestionService;
 import pl.playwithme.smo.service.security.JwtTokenFacade;
 
 import java.security.InvalidParameterException;
@@ -26,8 +28,13 @@ public class DBRepository {
     JdbcTemplate jdbcTemplate;
 
     @Autowired
-    quizService quizService;
+    QuizService quizService;
 
+    @Autowired
+    NewScoreService newScoreService;
+
+    @Autowired
+    QuestionService questionService;
 
     public ResponseEntity<User> getSettings(String authorizationHeader) {
         try {
@@ -130,10 +137,12 @@ public class DBRepository {
         return authorizationHeader.substring(7);
     }
 
-    public ResponseEntity getQuizResult(String auth, List<QuizResult> result) {
+    public ResponseEntity processQuizResult(String auth, List<QuizResult> result) {
         try {
             validateJwt(auth);
-            System.out.println("Przyjęto odpowiedź" + result);
+            List<Question> questions = questionService.getQuestionlist(result);
+            var newData = newScoreService.calculateNewScore(result, questions);
+            quizService.enterNewData(newData);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

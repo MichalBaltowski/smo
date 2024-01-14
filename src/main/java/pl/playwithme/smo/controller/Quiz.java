@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.playwithme.smo.dto.QuizResult;
-import pl.playwithme.smo.entity.Question;
+import pl.playwithme.smo.quiz.entity.Question;
 import pl.playwithme.smo.database.DBRepository;
 
 import java.util.List;
@@ -30,8 +30,8 @@ public class Quiz {
     }
 
     @PostMapping("/sendQuizResult")
-    public ResponseEntity getQuizResult(@RequestHeader("Authorization") String auth,
-                              @RequestBody List<QuizResult> result) {
-        return dbRepository.getQuizResult(auth, result);
+    public ResponseEntity processQuizResult(@RequestHeader("Authorization") String auth,
+                                            @RequestBody List<QuizResult> result) {
+        return dbRepository.processQuizResult(auth, result);
     }
 }

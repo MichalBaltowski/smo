@@ -12,15 +12,17 @@
 - {Backend} Zaimplementować nowy sposób przyznawania punktów za nauke
 - {Backend} Skonstruować serwis/klasę do tworzenia kolekcji zmatchowanych rekordów bo question id
 - {Backend} Skonstruować serwis/klasę do tworzenia kolekcji z wynikiem który będzie przetworzony w bazie danych
+- {Backend} Dodanie testów jednostkowych
 
 
 ## Backlog:
-- dodanie ekranu obsługującego przeglądanie fiszek
-- dodanie opcji edycji fiszek
-- Zabezpieczenie aplikacji przed sql injection
-- Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
-- Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
-- Dodanie testów jednostkowych
+- {Frontend} dodanie ekranu do przeglądanie dodanych fiszek wraz z ich właściwościami
+- {Backend} Dodanie obsługi do ekranu do przeglądania fiszek
+- {Backend} Zabezpieczenie aplikacji przed sql injection
+- {Backend} Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
+- {Backend} Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
+- {Backend} Przedłużanie sesji przy uruchomieniu quizu
+- {Backend} Obsługa ilości fiszek w quizie
+- {Backend} Obsługa maksymalnego czasu na odpowiedź w quizie
 
 ## Backlog - tech debt
-- używać zmiennych w css (dowiedzieć się jak to się robi, kiedy warto, jakie są dobre praktyki i to zastosować w projekcie)
