@@ -6,4 +6,5 @@ import pl.playwithme.smo.quiz.entity.QuizSettings;
 
 @Repository
 public interface QuizSettingsRepository extends JpaRepository<QuizSettings, Long> {
+
 }

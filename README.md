@@ -1,28 +1,22 @@
 # MeetMe
 
 
-## Todo Sprint_1 <8-01;14.01>:
+## Todo Sprint_1 <15-01;21.01>:
+- {Backend} Dodanie obsługi do ekranu do przeglądania fiszek
 - {DB}Dodać wszystkie pytania do bazy danych
 - {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
+- {Backend} Obsługa ilości fiszek w quizie
+- {Backend} Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
+- {Backend} Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika
+- {Frontend} dodanie ekranu do przeglądanie dodanych fiszek wraz z ich właściwościami
+- {Backend} Dodać serwis z logiką która wybiera jakie fiszki mają być wybrane do quizu
 
 ## Done:
-- {Backend} Skonstruować lepszy sposób przyznawania punktów za nauke
-- {Backend} Zaimplementować nowy sposób przyznawania punktów za nauke
-- {Backend} Zaimplementować nowy sposób przyznawania punktów za nauke
-- {Backend} Skonstruować serwis/klasę do tworzenia kolekcji zmatchowanych rekordów bo question id
-- {Backend} Skonstruować serwis/klasę do tworzenia kolekcji z wynikiem który będzie przetworzony w bazie danych
-- {Backend} Dodanie testów jednostkowych
-- {Backend} Skonstruować serwis/klasę do wrzucania nowych wyników do bazy
 
 
 ## Backlog:
-- {Backend} Dodanie obsługi do ekranu do przeglądania fiszek
 - {Backend} Zabezpieczenie aplikacji przed sql injection
-- {Backend} Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
-- {Backend} Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
-- {Backend} Przedłużanie sesji przy uruchomieniu quizu
-- {Backend} Obsługa ilości fiszek w quizie
+- {Backend} Przedłużanie ważność jwt przy uruchomieniu quizu
 - {Backend} Obsługa maksymalnego czasu na odpowiedź w quizie
-- {Frontend} dodanie ekranu do przeglądanie dodanych fiszek wraz z ich właściwościami
 
 ## Backlog - tech debt

@@ -15,12 +15,9 @@ public class QuizSettingsService {
         this.quizService = quizService;
     }
 
-    public int getQuizCardLimit() {
-        initDefaultSettingsIfTableEmpty();
-
+    public QuizSettings getQuizCardLimit() {
         var settings = quizService.getSettings();
-        System.out.println("settings z bazy: " + settings);
-        return 1;
+        return settings.get(1);
     }
 
     public void initDefaultSettingsIfTableEmpty() {
