@@ -2,6 +2,7 @@
 
 
 ## Todo Sprint_1 <15-01;21.01>:
+- {Backlog} Przetwarzanie wyników quiz asychnronicznie za pomocą wzorca projektowego Command
 - {Backend} Dodanie obsługi do ekranu do przeglądania fiszek
 - {DB}Dodać wszystkie pytania do bazy danych
 - {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
@@ -18,5 +19,4 @@
 - {Backend} Zabezpieczenie aplikacji przed sql injection
 - {Backend} Przedłużanie ważność jwt przy uruchomieniu quizu
 - {Backend} Obsługa maksymalnego czasu na odpowiedź w quizie
-
 ## Backlog - tech debt

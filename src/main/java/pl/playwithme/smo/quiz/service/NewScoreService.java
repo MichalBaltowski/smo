@@ -1,11 +1,11 @@
 package pl.playwithme.smo.quiz.service;
 
 import org.springframework.stereotype.Service;
-import pl.playwithme.smo.dto.QuizResult;
+import pl.playwithme.smo.quiz.entity.QuizResult;
 import pl.playwithme.smo.quiz.entity.Question;
 import pl.playwithme.smo.quiz.exception.BadMatchQuestionIDException;
-import pl.playwithme.smo.quiz.score.ResultData;
-import pl.playwithme.smo.quiz.score.ScoreCalculatorFactory;
+import pl.playwithme.smo.quiz.service.score.ResultData;
+import pl.playwithme.smo.quiz.service.score.ScoreCalculatorFactory;
 
 import java.util.*;
 import java.util.stream.Collectors;

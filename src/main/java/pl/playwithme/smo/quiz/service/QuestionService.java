@@ -1,9 +1,9 @@
 package pl.playwithme.smo.quiz.service;
 
 import org.springframework.stereotype.Service;
-import pl.playwithme.smo.dto.QuizResult;
+import pl.playwithme.smo.quiz.entity.QuizResult;
 import pl.playwithme.smo.quiz.entity.Question;
-import pl.playwithme.smo.quiz.repository.QuizService;
+import pl.playwithme.smo.quiz.dao.QuizService;
 
 import java.util.List;
 

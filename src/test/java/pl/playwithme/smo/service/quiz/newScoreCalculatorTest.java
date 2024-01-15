@@ -3,13 +3,12 @@ package pl.playwithme.smo.service.quiz;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.playwithme.smo.dto.QuizResult;
-import pl.playwithme.smo.dto.UserChoice;
+import pl.playwithme.smo.quiz.entity.QuizResult;
+import pl.playwithme.smo.quiz.entity.UserChoice;
 import pl.playwithme.smo.quiz.entity.Question;
 import pl.playwithme.smo.quiz.service.NewScoreService;
 import pl.playwithme.smo.quiz.exception.BadMatchQuestionIDException;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

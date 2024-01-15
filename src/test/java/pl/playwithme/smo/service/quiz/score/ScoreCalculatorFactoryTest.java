@@ -3,8 +3,8 @@ package pl.playwithme.smo.service.quiz.score;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.playwithme.smo.dto.UserChoice;
-import pl.playwithme.smo.quiz.score.ResultData;
+import pl.playwithme.smo.quiz.entity.UserChoice;
+import pl.playwithme.smo.quiz.service.score.*;
 import pl.playwithme.smo.quiz.score.*;
 
 import static org.junit.jupiter.api.Assertions.*;
