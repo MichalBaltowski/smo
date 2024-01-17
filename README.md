@@ -5,7 +5,6 @@
 - {Backlog} Przetwarzanie wyników quiz asychnronicznie za pomocą wzorca projektowego Command
 - {Backend} Dodanie obsługi do ekranu do przeglądania fiszek
 - {DB}Dodać wszystkie pytania do bazy danych
-- {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
 - {Backend} Obsługa ilości fiszek w quizie
 - {Backend} Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
 - {Backend} Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika
@@ -13,6 +12,7 @@
 - {Backend} Dodać serwis z logiką która wybiera jakie fiszki mają być wybrane do quizu
 
 ## Done:
+- {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
 
 
 ## Backlog:
