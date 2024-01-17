@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import pl.playwithme.smo.commonService.security.SecurityService;
-import pl.playwithme.smo.quizApp.controller.Quiz;
 import pl.playwithme.smo.quizApp.entity.Question;
 import pl.playwithme.smo.quizApp.entity.QuizResult;
 import pl.playwithme.smo.quizApp.service.NewScoreService;

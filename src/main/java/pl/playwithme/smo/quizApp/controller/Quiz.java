@@ -1,14 +1,11 @@
 package pl.playwithme.smo.quizApp.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.playwithme.smo.quizApp.dao.QuizRepository;
 import pl.playwithme.smo.quizApp.entity.QuizResult;
 import pl.playwithme.smo.quizApp.entity.Question;
-import pl.playwithme.smo.meetMeApp.dao.UserRepository;
 
 import java.util.List;
 

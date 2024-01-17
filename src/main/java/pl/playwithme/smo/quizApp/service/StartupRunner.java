@@ -24,7 +24,7 @@ public final class StartupRunner {
     private void doSomethingAfterStartup() {
         System.out.println("\n\n=============Aplication Ready=============\n\n");
         showStartupDurationTime();
-
+        initDB();
     }
 
     private void showStartupDurationTime() {

@@ -16,7 +16,6 @@ public class QuestionService {
     }
 
     public List<Question> getQuestionlist(List<QuizResult> result) {
-        System.out.println("Lista obiektów QuizResult z frontendu");
         for (var res : result) {
             System.out.println(res);
         }
@@ -34,12 +33,5 @@ public class QuestionService {
         }
 
         return temp;
-    }
-
-    private void log(List<QuizResult> result) {
-        System.out.println("Lista obiektów QuizResult z frontendu");
-        for (var res : result) {
-            System.out.println(res);
-        }
     }
 }
