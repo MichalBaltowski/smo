@@ -7,13 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="smo" />
+        <module name="quiz-service" />
+        <module name="main-serivce" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="smo" options="-parameters" />
+      <module name="main-serivce" options="-parameters" />
+      <module name="quiz-service" options="-parameters" />
+      <module name="smo" options="" />
     </option>
   </component>
 </project>
