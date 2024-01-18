@@ -2,9 +2,9 @@
 
 
 ## Todo Sprint_1 <15-01;21.01>:
-- Przerobić projekt na dwa mikroserwisy QuizMicroservice i MeetMeMicroservice
-- Dodać mikroserwis do obsługi powiadomień - NotificationMicroservice
-- 
+- {Backend} Przerobić projekt na dwa mikroserwisy quiz-service i meetme-service
+- {Backend} Dodać obsługę MongoDB dla quiz 
+- {Backend} Przerobić logikę obsługującą quiz tak by działała z mongoDB
 
 ## Done:
 - {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
