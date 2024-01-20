@@ -1,9 +1,0 @@
-pl\playwithme\smo\quizApp\service\NewScoreServiceTest.class
-pl\playwithme\smo\quizApp\service\score\FirstLevelScoreCalculatorTest.class
-pl\playwithme\smo\quizApp\service\score\FourthLevelScoreCalculatorTest.class
-pl\playwithme\smo\quizApp\service\score\SecondLevelScoreCalculatorTest.class
-pl\playwithme\smo\quizApp\service\score\ZeroLevelScoreCalculatorTest.class
-pl\playwithme\smo\quizApp\service\score\ThirdLevelScoreCalculatorTest.class
-pl\playwithme\smo\SmoApplicationTest.class
-pl\playwithme\smo\quizApp\service\score\ScoreCalculatorFactoryTest.class
-pl\playwithme\smo\quizApp\service\prepare\TempServiceTest.class

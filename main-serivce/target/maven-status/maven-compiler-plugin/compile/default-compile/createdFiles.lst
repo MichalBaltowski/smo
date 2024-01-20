@@ -1,0 +1,11 @@
+pl\playwithme\smo\MeetMeApp.class
+pl\playwithme\smo\meetMeApp\dto\SaveSettingsRequest.class
+pl\playwithme\smo\meetMeApp\dto\LoginRequest.class
+pl\playwithme\smo\meetMeApp\controller\User.class
+pl\playwithme\smo\commonService\security\SecurityService.class
+pl\playwithme\smo\meetMeApp\entity\User.class
+pl\playwithme\smo\meetMeApp\service\UserService.class
+pl\playwithme\smo\meetMeApp\dao\UserRepository.class
+pl\playwithme\smo\commonService\security\JwtTokenFacade.class
+pl\playwithme\smo\meetMeApp\dao\meetMeRepository.class
+pl\playwithme\smo\commonService\security\RsaKeyLoader.class

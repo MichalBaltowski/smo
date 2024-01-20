@@ -1,0 +1,8 @@
+pl\playwithme\service\prepare\TempServiceTest.class
+pl\playwithme\service\NewScoreServiceTest.class
+pl\playwithme\service\score\SecondLevelScoreCalculatorTest.class
+pl\playwithme\service\score\FourthLevelScoreCalculatorTest.class
+pl\playwithme\service\score\ScoreCalculatorFactoryTest.class
+pl\playwithme\service\score\ZeroLevelScoreCalculatorTest.class
+pl\playwithme\service\score\ThirdLevelScoreCalculatorTest.class
+pl\playwithme\service\score\FirstLevelScoreCalculatorTest.class
