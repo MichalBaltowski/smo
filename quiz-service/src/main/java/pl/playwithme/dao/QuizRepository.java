@@ -4,8 +4,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import pl.playwithme.entity.Question;
-import pl.playwithme.entity.QuizResult;
+import pl.playwithme.model.Question;
+import pl.playwithme.model.QuizResult;
 import pl.playwithme.service.NewScoreService;
 import pl.playwithme.service.QuestionService;
 import pl.playwithme.service.QuizService;
@@ -18,14 +18,12 @@ import java.util.List;
 @Repository
 public class QuizRepository {
 
-    //private final SecurityService securityService;
     private final QuizService quizService;
     private final NewScoreService newScoreService;
     private final QuestionService questionService;
     private final TempService tempService;
 
-    QuizRepository(//SecurityService securityService,
-                   QuizService quizService,
+    QuizRepository(QuizService quizService,
                    NewScoreService newScoreService,
                    QuestionService questionService,
                    TempService tempService) {

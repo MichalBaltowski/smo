@@ -1,7 +1,7 @@
 package pl.playwithme.service.prepare;
 
 import org.springframework.stereotype.Service;
-import pl.playwithme.entity.QuizSettings;
+import pl.playwithme.model.QuizSettings;
 import pl.playwithme.service.QuizService;
 
 import java.util.List;
@@ -19,12 +19,12 @@ public class TempService {
     }
 
 
-    public List<Long> prepareQuestionIdsList() {
+    public List<String> prepareQuestionIdsList() {
         var settings = quizSettings.get();
         return getQuestionsIds(settings);
     }
 
-    public List<Long> getQuestionsIds(QuizSettings quizSettings) {
+    public List<String> getQuestionsIds(QuizSettings quizSettings) {
         var questionList = quizService.getQuestionSet(quizSettings);
         return questionList
                 .stream()

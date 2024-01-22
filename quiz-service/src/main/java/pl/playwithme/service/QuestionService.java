@@ -1,8 +1,8 @@
 package pl.playwithme.service;
 
 import org.springframework.stereotype.Service;
-import pl.playwithme.entity.Question;
-import pl.playwithme.entity.QuizResult;
+import pl.playwithme.model.Question;
+import pl.playwithme.model.QuizResult;
 
 import java.util.List;
 

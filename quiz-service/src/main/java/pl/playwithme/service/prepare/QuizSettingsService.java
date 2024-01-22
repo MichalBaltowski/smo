@@ -2,7 +2,7 @@ package pl.playwithme.service.prepare;
 
 import lombok.Data;
 import org.springframework.stereotype.Service;
-import pl.playwithme.entity.QuizSettings;
+import pl.playwithme.model.QuizSettings;
 import pl.playwithme.service.QuizService;
 
 

@@ -1,12 +1,12 @@
 pl\playwithme\dao\QuizSettingsRepository.class
-pl\playwithme\entity\QuizResult.class
+pl\playwithme\model\Question.class
 pl\playwithme\dao\QuizRepository.class
 pl\playwithme\dao\QuestionRepository.class
 pl\playwithme\service\score\ScoreCalculatorFactory.class
-pl\playwithme\entity\UserChoice.class
+pl\playwithme\model\UserChoice.class
 pl\playwithme\service\score\ResultData.class
 pl\playwithme\service\score\ZeroLevelScoreCalculator$1.class
-pl\playwithme\entity\Question.class
+pl\playwithme\model\QuizResult.class
 pl\playwithme\service\score\ThirdLevelScoreCalculator$1.class
 pl\playwithme\service\QuizService.class
 pl\playwithme\exception\BadMatchQuestionIDException.class
@@ -15,9 +15,9 @@ pl\playwithme\service\score\SecondLevelScoreCalculator$1.class
 pl\playwithme\service\prepare\QuizSettingsService.class
 pl\playwithme\service\score\FirstLevelScoreCalculator$1.class
 pl\playwithme\service\score\ThirdLevelScoreCalculator.class
-pl\playwithme\entity\QuizSettings.class
 pl\playwithme\controller\Quiz.class
 pl\playwithme\QuizApp.class
+pl\playwithme\model\QuizSettings.class
 pl\playwithme\service\NewScoreService.class
 pl\playwithme\service\score\FirstLevelScoreCalculator.class
 pl\playwithme\service\score\ZeroLevelScoreCalculator.class

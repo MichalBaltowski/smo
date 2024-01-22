@@ -3,7 +3,7 @@ package pl.playwithme.service.score;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.playwithme.entity.UserChoice;
+import pl.playwithme.model.UserChoice;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +16,7 @@ class ThirdLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterGoodChoice() {
         //given
-        var resultData = new ResultData(1l, UserChoice.good, 45);
+        var resultData = new ResultData("1", UserChoice.good, 45);
         //when
         var newScore = thirdLevelScoreCalculator.calculateNewScore(resultData);
         //then
@@ -26,7 +26,7 @@ class ThirdLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterMediumChoice() {
         //given
-        var resultData = new ResultData(1l, UserChoice.medium, 45);
+        var resultData = new ResultData("1", UserChoice.medium, 45);
         //when
         var newScore = thirdLevelScoreCalculator.calculateNewScore(resultData);
         //then
@@ -36,7 +36,7 @@ class ThirdLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterBadChoice1() {
         //given
-        var resultData = new ResultData(1l, UserChoice.bad, 45);
+        var resultData = new ResultData("1", UserChoice.bad, 45);
         //when
         var newScore = thirdLevelScoreCalculator.calculateNewScore(resultData);
         //then
@@ -46,7 +46,7 @@ class ThirdLevelScoreCalculatorTest {
     @Test
     void calcNewScoreAfterBadChoice2() {
         //given
-        var resultData = new ResultData(1l, UserChoice.bad, 45);
+        var resultData = new ResultData("1", UserChoice.bad, 45);
         //when
         var newScore = thirdLevelScoreCalculator.calculateNewScore(resultData);
         //then

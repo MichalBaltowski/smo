@@ -6,8 +6,8 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 import pl.playwithme.dao.QuestionRepository;
 import pl.playwithme.dao.QuizSettingsRepository;
-import pl.playwithme.entity.Question;
-import pl.playwithme.entity.QuizSettings;
+import pl.playwithme.model.Question;
+import pl.playwithme.model.QuizSettings;
 
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class QuizService {
         return query.getResultList();
     }
 
-    public List<Question> getQuestionSet(List<Long> ids) {
+    public List<Question> getQuestionSet(List<String> ids) {
         return questionRepository.findAllById(ids);
     }
 
@@ -43,7 +43,7 @@ public class QuizService {
         questionRepository.save(question);
     }
 
-    public void enterNewData(Map<Long, Integer> resColl) {
+    public void enterNewData(Map<String, Integer> resColl) {
         resColl.forEach((questionId, newScore) -> {
             var question = questionRepository.findById(questionId).get();
             question.setScore(newScore);

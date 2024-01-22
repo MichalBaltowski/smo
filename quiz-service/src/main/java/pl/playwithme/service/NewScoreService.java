@@ -1,8 +1,8 @@
 package pl.playwithme.service;
 
 import org.springframework.stereotype.Service;
-import pl.playwithme.entity.Question;
-import pl.playwithme.entity.QuizResult;
+import pl.playwithme.model.Question;
+import pl.playwithme.model.QuizResult;
 import pl.playwithme.exception.BadMatchQuestionIDException;
 import pl.playwithme.service.score.ResultData;
 import pl.playwithme.service.score.ScoreCalculatorFactory;
@@ -21,7 +21,7 @@ public class NewScoreService {
         this.calcFactory = calcFactory;
     }
 
-    public Map<Long, Integer> calculateNewScore(List<QuizResult> result, List<Question> question) {
+    public Map<String, Integer> calculateNewScore(List<QuizResult> result, List<Question> question) {
         validateData(result, question);
         var resultDataList = createResultDataCol(result, question);
         return createNewScoreCol(resultDataList);
@@ -55,7 +55,7 @@ public class NewScoreService {
         }
     }
 
-    private Map<Long, Integer> createNewScoreCol(List<ResultData> resultDataList) {
+    private Map<String, Integer> createNewScoreCol(List<ResultData> resultDataList) {
         return resultDataList.stream()
                 .collect(Collectors.toMap(
                         res -> res.getQuestioniD(),
