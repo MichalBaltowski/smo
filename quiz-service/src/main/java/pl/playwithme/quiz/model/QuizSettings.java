@@ -10,7 +10,6 @@ public class QuizSettings {
 
     @Id
     private String id;
-
     int cardLimit;
-
+    String userId;
 }

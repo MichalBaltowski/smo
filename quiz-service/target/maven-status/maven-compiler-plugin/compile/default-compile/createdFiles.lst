@@ -1,5 +1,6 @@
 pl\playwithme\quiz\service\NewScoreService.class
 pl\playwithme\quiz\service\score\SecondLevelScoreCalculator$1.class
+pl\playwithme\quiz\security\RsaKeyLoader.class
 pl\playwithme\quiz\service\score\ZeroLevelScoreCalculator.class
 pl\playwithme\quiz\service\StartupRunner.class
 pl\playwithme\quiz\service\prepare\TempService.class
@@ -9,6 +10,7 @@ pl\playwithme\quiz\service\prepare\QuizSettingsService.class
 pl\playwithme\quiz\service\QuizService.class
 pl\playwithme\quiz\service\score\FirstLevelScoreCalculator$1.class
 pl\playwithme\quiz\dao\QuizRepository.class
+pl\playwithme\quiz\security\SecurityService.class
 pl\playwithme\quiz\controller\Quiz.class
 pl\playwithme\quiz\service\score\ThirdLevelScoreCalculator$1.class
 pl\playwithme\quiz\service\score\ThirdLevelScoreCalculator.class
@@ -22,6 +24,7 @@ pl\playwithme\quiz\service\score\ScoreCalculatorFactory.class
 pl\playwithme\quiz\service\score\ScoreCalculator.class
 pl\playwithme\quiz\model\Question.class
 pl\playwithme\quiz\service\score\SecondLevelScoreCalculator.class
+pl\playwithme\quiz\security\JwtTokenFacade.class
 pl\playwithme\quiz\service\QuestionService.class
 pl\playwithme\quiz\QuizApp.class
 pl\playwithme\quiz\model\QuizResult.class

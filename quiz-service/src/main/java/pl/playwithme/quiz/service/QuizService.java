@@ -12,6 +12,7 @@ import pl.playwithme.quiz.model.QuizSettings;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class QuizService {
@@ -53,8 +54,8 @@ public class QuizService {
         return quizSettingsRepository.findAll();
     }
 
-    public QuizSettings getSettings(String id) {
-        return quizSettingsRepository.findById(id).get();
+    public Optional<QuizSettings> getSettings(String userId) {
+        return quizSettingsRepository.findByUserId(userId);
     }
 
     public void addSettings(QuizSettings settings) {

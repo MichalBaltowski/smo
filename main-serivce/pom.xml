@@ -5,6 +5,7 @@
     <groupId>pl.meetme</groupId>
     <artifactId>main-serivce</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <parent>
         <artifactId>smo</artifactId>
