@@ -79,6 +79,19 @@ public class QuizRepository {
         }
     }
 
+    public ResponseEntity getSettings(String auth) {
+        try {
+            var decodedJWT = securityService.validateJwt(auth);
+            var userId = decodedJWT.getSubject();
+            var settings = quizService.getSettings(userId);
+            return new ResponseEntity<>(settings, HttpStatus.FOUND);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public ResponseEntity saveSettings(String auth, QuizSettings settings) {
         try {
             var decodedJWT = securityService.validateJwt(auth);

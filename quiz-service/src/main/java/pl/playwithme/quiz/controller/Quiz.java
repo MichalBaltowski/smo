@@ -42,7 +42,7 @@ public class Quiz {
 
     @GetMapping("/settings")
     public ResponseEntity getSettings(@RequestHeader(AUTHORIZATION) String auth) {
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return quizRepository.getSettings(auth);
     }
 
     @PostMapping("/settings")
