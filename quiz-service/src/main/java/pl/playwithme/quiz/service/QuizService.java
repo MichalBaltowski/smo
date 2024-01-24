@@ -3,6 +3,7 @@ package pl.playwithme.quiz.service;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import pl.playwithme.quiz.dao.QuestionRepository;
 import pl.playwithme.quiz.dao.QuizSettingsRepository;
@@ -28,10 +29,8 @@ public class QuizService {
     }
 
     public List<Question> getQuestionSet(QuizSettings settings) {
-        Session session = entityManager.unwrap(Session.class);
-        Query<Question> query = session.createQuery("FROM Question", Question.class);
-        query.setMaxResults(settings.getCardLimit());
-        return query.getResultList();
+        return questionRepository.findAll(
+                PageRequest.of(0, settings.getCardLimit())).getContent();
     }
 
     public List<Question> getQuestionSet(List<String> ids) {
@@ -52,6 +51,10 @@ public class QuizService {
 
     public List<QuizSettings> getSettings() {
         return quizSettingsRepository.findAll();
+    }
+
+    public QuizSettings getSettings(String id) {
+        return quizSettingsRepository.findById(id).get();
     }
 
     public void addSettings(QuizSettings settings) {

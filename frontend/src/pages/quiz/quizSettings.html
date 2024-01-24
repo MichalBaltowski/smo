@@ -14,11 +14,14 @@
 <body>
 	<div class="logo">Ustawienia Quizu</div>
 	<div class="main-container">
-		<div class="quiz-container">
-			<label for="numOfcardsInSet">Liczba fiszek w quizie</label>
-			<input type="number" id="numOfcardsInSet" min="1" value="1">
-		</div>
+		<form class="all-input-container">
+			<div class="quiz-container">
+				<label for="numOfcardsInSet">Liczba fiszek w quizie</label>
+				<input type="number" id="numOfcardsInSet" name="numOfcardsInSet" min="1" value="1">
+			</div>
+		</form>
 		<div >
+			<button class="button" id="saveSettings">Zapisz</button>
 			<button class="button" id="openQuizMenu">Powrót</button>
 		</div>
 	</div>

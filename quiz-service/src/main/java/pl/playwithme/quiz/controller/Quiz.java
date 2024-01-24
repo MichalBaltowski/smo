@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.playwithme.quiz.dao.QuizRepository;
 import pl.playwithme.quiz.model.Question;
 import pl.playwithme.quiz.model.QuizResult;
-
+import pl.playwithme.quiz.model.QuizSettings;
 
 import java.util.List;
 
@@ -15,6 +15,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class Quiz {
 
+    private static final String AUTHORIZATION = "Authorization";
+
     private QuizRepository quizRepository;
 
     Quiz(QuizRepository quizRepository) {
@@ -22,24 +24,30 @@ public class Quiz {
     }
 
     @PostMapping("/addCard")
-    public ResponseEntity add(@RequestHeader("Authorization") String auth,
+    public ResponseEntity add(@RequestHeader(AUTHORIZATION) String auth,
                               @RequestBody Question question) {
         return quizRepository.addCard(auth, question);
     }
 
     @GetMapping("/questionSet")
-    public ResponseEntity get(@RequestHeader("Authorization") String auth) {
+    public ResponseEntity get(@RequestHeader(AUTHORIZATION) String auth) {
         return quizRepository.getQuestionSet(auth);
     }
 
     @PostMapping("/sendQuizResult")
-    public ResponseEntity processQuizResult(@RequestHeader("Authorization") String auth,
+    public ResponseEntity processQuizResult(@RequestHeader(AUTHORIZATION) String auth,
                                             @RequestBody List<QuizResult> result) {
         return quizRepository.processQuizResult(auth, result);
     }
 
     @GetMapping("/settings")
-    public ResponseEntity getSettings(@RequestHeader("Authorization") String auth) {
+    public ResponseEntity getSettings(@RequestHeader(AUTHORIZATION) String auth) {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @PostMapping("/settings")
+    public ResponseEntity saveSettings(@RequestHeader(AUTHORIZATION) String auth,
+                                       @RequestBody QuizSettings settings) {
+        return quizRepository.saveSettings(auth, settings);
     }
 }

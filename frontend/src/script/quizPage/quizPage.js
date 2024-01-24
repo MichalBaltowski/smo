@@ -35,12 +35,12 @@ async function loadQuestionArray() {
     var token = localStorage.getItem('jwt');
 
     try {
-        let response = await fetch('http://localhost:8080/api/quiz/questionSet', {
+        let response = await fetch('http://localhost:8081/api/quiz/questionSet', {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json'
-            },
+            }
         });
 
         if (response.ok) {
@@ -52,7 +52,7 @@ async function loadQuestionArray() {
             console.error('Błąd.');
         }
     } catch (error) {
-        console.error('Błąd przy wywołaniu http://localhost:8080/api/quiz/questionSet :', error);
+        console.error('Błąd przy wywołaniu http://localhost:8081/api/quiz/questionSet :', error);
     }
 }
 
@@ -61,7 +61,7 @@ async function sendQuizResult() {
     var token = localStorage.getItem('jwt');
 
     try {
-        let response = await fetch('http://localhost:8080/api/quiz/sendQuizResult', {
+        let response = await fetch('http://localhost:8081/api/quiz/sendQuizResult', {
             method: 'POST',
             body: JSON.stringify(responseArray),
             headers: {
@@ -79,7 +79,7 @@ async function sendQuizResult() {
             console.error('Błąd.');
         }
     } catch (error) {
-        console.error('Błąd przy wywołaniu http://localhost:8080/api/quiz/sendQuizResult :', error);
+        console.error('Błąd przy wywołaniu http://localhost:8081/api/quiz/sendQuizResult :', error);
     }
 }
 

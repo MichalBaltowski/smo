@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import pl.playwithme.quiz.model.Question;
 import pl.playwithme.quiz.model.QuizResult;
+import pl.playwithme.quiz.model.QuizSettings;
 import pl.playwithme.quiz.service.NewScoreService;
 import pl.playwithme.quiz.service.QuestionService;
 import pl.playwithme.quiz.service.QuizService;
@@ -67,6 +68,21 @@ public class QuizRepository {
             List<Question> questions = questionService.getQuestionlist(result);
             var newData = newScoreService.calculateNewScore(result, questions);
             quizService.enterNewData(newData);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity saveSettings(String auth, QuizSettings settings) {
+        try {
+            //securityService.validateJwt(auth);'
+//            var id = settings.getCardLimit();
+//            var settingToChange = quizService.getSettings(id);
+//            settingToChange.setCardLimit(settings.getCardLimit());
+            quizService.addSettings(settings);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

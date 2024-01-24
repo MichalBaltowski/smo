@@ -18,7 +18,6 @@ public class TempService {
         this.quizService = quizService;
     }
 
-
     public List<String> prepareQuestionIdsList() {
         var settings = quizSettings.get();
         return getQuestionsIds(settings);

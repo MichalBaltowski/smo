@@ -29,7 +29,7 @@ function createCardData() {
 function send(cardData) {
     var jwt = localStorage.getItem("jwt");
 
-    fetch('http://localhost:8080/api/quiz/addCard', {
+    fetch('http://localhost:8081/api/quiz/addCard', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + jwt,
