@@ -10,7 +10,12 @@
 - {Backend} Dodać serwis do wykonywania kodu pod uruchomieniu aplikacji
 - {Backend} Dodać obsługę ustawień quizu
 
-
+# Done Spirnt_2 <15.01; 24.01>
+- {Backend} Użyć Hibernate we wszystkich połączeniach z bazą danych
+- {Backend} Przerobić logikę obsługującą quiz tak by działała z mongoDB
+- {Backend} Dodać obsługę MongoDB dla quiz
+- {Backend} Przerobić projekt na dwa mikroserwisy quiz-service i meetme-service
+- {Backend} Obsługa ilości fiszek w quizie
 
 
 
