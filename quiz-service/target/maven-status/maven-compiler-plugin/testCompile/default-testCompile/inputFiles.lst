@@ -1,8 +1,8 @@
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\score\FourthLevelScoreCalculatorTest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\score\ThirdLevelScoreCalculatorTest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\score\ScoreCalculatorFactoryTest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\score\SecondLevelScoreCalculatorTest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\prepare\TempServiceTest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\NewScoreServiceTest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\score\FirstLevelScoreCalculatorTest.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\service\score\ZeroLevelScoreCalculatorTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\NewScoreServiceTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\score\SecondLevelScoreCalculatorTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\prepare\TempServiceTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\score\ThirdLevelScoreCalculatorTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\score\FirstLevelScoreCalculatorTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\score\FourthLevelScoreCalculatorTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\score\ScoreCalculatorFactoryTest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\quiz-service\src\test\java\pl\playwithme\quiz\service\score\ZeroLevelScoreCalculatorTest.java

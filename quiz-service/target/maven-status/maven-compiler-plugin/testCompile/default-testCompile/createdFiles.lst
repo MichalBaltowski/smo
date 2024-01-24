@@ -1,8 +1,8 @@
-pl\playwithme\service\prepare\TempServiceTest.class
-pl\playwithme\service\NewScoreServiceTest.class
-pl\playwithme\service\score\SecondLevelScoreCalculatorTest.class
-pl\playwithme\service\score\FourthLevelScoreCalculatorTest.class
-pl\playwithme\service\score\ScoreCalculatorFactoryTest.class
-pl\playwithme\service\score\ZeroLevelScoreCalculatorTest.class
-pl\playwithme\service\score\ThirdLevelScoreCalculatorTest.class
-pl\playwithme\service\score\FirstLevelScoreCalculatorTest.class
+pl\playwithme\quiz\service\score\ScoreCalculatorFactoryTest.class
+pl\playwithme\quiz\service\score\FourthLevelScoreCalculatorTest.class
+pl\playwithme\quiz\service\NewScoreServiceTest.class
+pl\playwithme\quiz\service\score\SecondLevelScoreCalculatorTest.class
+pl\playwithme\quiz\service\prepare\TempServiceTest.class
+pl\playwithme\quiz\service\score\ZeroLevelScoreCalculatorTest.class
+pl\playwithme\quiz\service\score\FirstLevelScoreCalculatorTest.class
+pl\playwithme\quiz\service\score\ThirdLevelScoreCalculatorTest.class

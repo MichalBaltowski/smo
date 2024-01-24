@@ -11,12 +11,16 @@
         <module name="main-serivce" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="temp" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="main-serivce" options="-parameters" />
       <module name="quiz-service" options="-parameters" />
       <module name="smo" options="" />
+      <module name="temp" options="-parameters" />
     </option>
   </component>
 </project>

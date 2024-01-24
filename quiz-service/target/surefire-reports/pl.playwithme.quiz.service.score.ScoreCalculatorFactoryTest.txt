@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: pl.playwithme.quiz.service.score.ScoreCalculatorFactoryTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s -- in pl.playwithme.quiz.service.score.ScoreCalculatorFactoryTest
