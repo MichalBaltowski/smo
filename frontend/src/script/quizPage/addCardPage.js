@@ -16,8 +16,7 @@ function createCardData() {
     var form = document.querySelector('.all-input-container');
     var formData = new FormData(form);
 
-    var cardDat
-    a = {
+    var cardData = {
         question: formData.get('question'),
         answer: formData.get('answer'),
         category: formData.get('category'),

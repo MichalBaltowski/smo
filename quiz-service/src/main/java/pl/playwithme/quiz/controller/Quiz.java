@@ -1,6 +1,5 @@
 package pl.playwithme.quiz.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.playwithme.quiz.dao.QuizRepository;
@@ -49,5 +48,10 @@ public class Quiz {
     public ResponseEntity saveSettings(@RequestHeader(AUTHORIZATION) String auth,
                                        @RequestBody QuizSettings settings) {
         return quizRepository.saveSettings(auth, settings);
+    }
+
+    @GetMapping("/category")
+    public ResponseEntity getCategoryList(@RequestHeader(AUTHORIZATION) String uath) {
+        return quizRepository.getCategoryList(uath);
     }
 }

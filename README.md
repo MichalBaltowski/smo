@@ -1,6 +1,14 @@
 # MeetMe
 
 
+
+
+
+
+
+
+
+
 ## Todo Sprint_3 <25-01;28.01>:
 - {Backend} Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
 - {Backend} Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
@@ -15,6 +23,9 @@
 - {Backlog} Dodać daty do encji question - data dodania, ostatnia data przerobienia
 - {Backlog} Ustawienia quizu - dodać wybór sortowania po dacie, wybór by wyszukiwać od najnowszych fiszek lub od najstarszych
 - {Frontend} Ustawienia quizu - dodać wybór sortowania po dacie, wybór by wyszukiwać od najnowszych fiszek lub od najstarszych
+
+- Dodać opis do README
+
 
 ## Done:
 

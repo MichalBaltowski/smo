@@ -40,7 +40,10 @@ public class QuizRepository {
 
     public ResponseEntity addCard(String auth, Question question) {
         try {
-            securityService.validateJwt(auth);
+            var decodedJWT = securityService.validateJwt(auth);
+            var userId = decodedJWT.getSubject();
+
+            quizService.ifCategoryExist(userId, question.getCategory());
             quizService.addQuestion(question);
 
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -107,6 +110,20 @@ public class QuizRepository {
                 quizService.addSettings(settings);
             }
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        } catch (InvalidParameterException exception) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } catch (DataAccessException exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public ResponseEntity getCategoryList(String auth) {
+        try {
+            var decodedJWT = securityService.validateJwt(auth);
+            var userId = decodedJWT.getSubject();
+            var categoryList = quizService.getSettings(userId);
+
+            return new ResponseEntity<>(categoryList.get(), HttpStatus.FOUND);
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (DataAccessException exception) {

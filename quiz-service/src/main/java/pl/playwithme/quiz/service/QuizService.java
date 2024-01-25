@@ -1,13 +1,13 @@
 package pl.playwithme.quiz.service;
 
-import jakarta.persistence.EntityManager;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.SessionFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import pl.playwithme.quiz.dao.QuestionCategoryRepository;
 import pl.playwithme.quiz.dao.QuestionRepository;
 import pl.playwithme.quiz.dao.QuizSettingsRepository;
 import pl.playwithme.quiz.model.Question;
+import pl.playwithme.quiz.model.QuestionCategory;
 import pl.playwithme.quiz.model.QuizSettings;
 
 import java.util.List;
@@ -17,16 +17,19 @@ import java.util.Optional;
 @Service
 public class QuizService {
 
-    private final EntityManager entityManager;
+    private final SessionFactory sessionFactory;
     private final QuestionRepository questionRepository;
     private final QuizSettingsRepository quizSettingsRepository;
 
-    QuizService(QuestionRepository questionRepo,
+    private final QuestionCategoryRepository questionCategoryRepository;
+
+    QuizService(SessionFactory sessionFactory, QuestionRepository questionRepo,
                 QuizSettingsRepository quizSettingsRepo,
-                EntityManager entityManager) {
+                QuestionCategoryRepository questionCategoryRepository) {
+        this.sessionFactory = sessionFactory;
         this.questionRepository = questionRepo;
         this.quizSettingsRepository = quizSettingsRepo;
-        this.entityManager = entityManager;
+        this.questionCategoryRepository = questionCategoryRepository;
     }
 
     public List<Question> getQuestionSet(QuizSettings settings) {
@@ -40,6 +43,12 @@ public class QuizService {
 
     public void addQuestion(Question question) {
         questionRepository.save(question);
+    }
+
+    public boolean ifCategoryExist(String userId, String category) {
+        var session = sessionFactory.openSession();
+        return true;
+       // return questionCategoryRepository.exists(cat);
     }
 
     public void enterNewData(Map<String, Integer> resColl) {
@@ -61,4 +70,9 @@ public class QuizService {
     public void addSettings(QuizSettings settings) {
         quizSettingsRepository.save(settings);
     }
+
+    public Optional<List<QuestionCategory>> getQuestionCategoryList(String userId) {
+        return questionCategoryRepository.findAllByUserId(userId);
+    }
+
 }
