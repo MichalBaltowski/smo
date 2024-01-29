@@ -114,8 +114,9 @@ function send(settingsData) {
             } else if (response.status === 401) {
                 showPopup();
                 console.error('Błąd autoryzacji: Nieautoryzowany dostęp (401).');
-            } else {
-                console.error('Błąd zapisu danych.');
+            } else if (response.status == 400){
+                console.error("Login jest zajęty");
+                location.reload();
             }
         })
         .catch(error => console.error('Błąd sieci:', error));

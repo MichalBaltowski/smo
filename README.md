@@ -10,6 +10,9 @@
 
 
 ## Todo Sprint_3 <25-01;28.01>:
+
+- {Backend} Użyć
+
 - {Backend} Dodanie weryfikacji czy login jest zajęty (przy zmianie danych użytkownika)
 - {Backend} Dodanie weryfikacji czy mail jest już wykorzystywany (przy zmianie danych użytkownika)
 - 

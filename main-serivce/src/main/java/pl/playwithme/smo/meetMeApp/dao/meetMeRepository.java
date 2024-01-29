@@ -1,5 +1,6 @@
 package pl.playwithme.smo.meetMeApp.dao;
 
+import jakarta.persistence.EntityManager;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +16,15 @@ import java.util.List;
 
 @Repository
 public class meetMeRepository {
+
+    private final EntityManager entityManager;
     private final SecurityService securityService;
     private final UserRepository userRepository;
 
-    meetMeRepository(SecurityService securityService,
+    meetMeRepository(EntityManager entityManager,
+                     SecurityService securityService,
                      UserRepository userRepository) {
+        this.entityManager = entityManager;
         this.securityService = securityService;
         this.userRepository = userRepository;
     }
@@ -48,18 +53,34 @@ public class meetMeRepository {
             if (user.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } else {
-                var newUser = user.get();
-                newUser.setName(request.getLogin());
-                newUser.setPassword(request.getPassword());
-                newUser.setEmail(request.getEmail());
-                userRepository.save(newUser);
-                return new ResponseEntity<>(HttpStatus.OK);
+                if (isLoginOccupied(request.getLogin())) {
+                    return new ResponseEntity("Login is occupied, choose another one", HttpStatus.BAD_REQUEST);
+                } else {
+                    var newUser = user.get();
+                    newUser.setName(request.getLogin());
+                    newUser.setPassword(request.getPassword());
+                    newUser.setEmail(request.getEmail());
+                    userRepository.save(newUser);
+                    return new ResponseEntity<>(HttpStatus.OK);
+                }
             }
         } catch (InvalidParameterException exception) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } catch (DataAccessException exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    private boolean isLoginOccupied(String newLogin) {
+        var query = entityManager.createQuery("where name = :newName", User.class);
+        query.setParameter("newName", newLogin);
+        return ! query.getResultList().isEmpty();
+    }
+
+    private boolean isEmailOccupied(String newEmail) {
+        var query = entityManager.createQuery("where email = :newEmail", User.class);
+        query.setParameter("newEmail", newEmail);
+        return ! query.getResultList().isEmpty();
     }
 
     public ResponseEntity login(LoginRequest loginRequest) {

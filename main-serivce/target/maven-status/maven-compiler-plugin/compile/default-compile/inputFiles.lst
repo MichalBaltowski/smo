@@ -3,9 +3,9 @@ C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwit
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\MeetMeApp.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\meetMeApp\dao\UserRepository.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\commonService\security\RsaKeyLoader.java
-C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\meetMeApp\controller\User.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\meetMeApp\dao\meetMeRepository.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\meetMeApp\entity\User.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\meetMeApp\service\UserService.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\meetMeApp\dto\SaveSettingsRequest.java
+C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\meetMeApp\controller\UserController.java
 C:\Users\mbalt\Desktop\Repo\PlayWithMe\smo\main-serivce\src\main\java\pl\playwithme\smo\commonService\security\JwtTokenFacade.java
