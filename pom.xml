@@ -6,6 +6,7 @@
 	<modules>
 		<module>main-serivce</module>
         <module>quiz-service</module>
+        <module>talk-service</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

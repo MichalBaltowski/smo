@@ -1,0 +1,64 @@
+.main-container {
+    width: 75vw;
+    background-color: #FFFFFF ;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.buttons-container {
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    height:150%;
+    font-size: 20px;
+    margin-bottom: 5%;
+    margin-right: 10%;
+}
+
+.button {
+    display: block;
+    width: 120px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #458FC6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#poorKnowledge {
+    background-color: #c73c07;
+}
+#poorKnowledge:hover {
+    background-color: #A93306;
+}
+
+#moderateKnowledge {
+    background-color: #d6ce32;
+}
+#moderateKnowledge:hover {
+    background-color: #C2BB27;
+}
+
+#goodKnowledge {
+    background-color: #4CAF50;
+}
+#goodKnowledge:hover {
+    background-color: #439A46;
+}
+
+#cardCounter {
+    text-align: right;
+}

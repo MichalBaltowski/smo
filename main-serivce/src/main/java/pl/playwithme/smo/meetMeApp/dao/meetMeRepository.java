@@ -53,8 +53,8 @@ public class meetMeRepository {
             if (user.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } else {
-                if (isLoginOccupied(request.getLogin())) {
-                    return new ResponseEntity("Login is occupied, choose another one", HttpStatus.BAD_REQUEST);
+                if (isLoginOccupied(request.getLogin()) || isEmailOccupied(request.getEmail())) {
+                    return new ResponseEntity("Login or email is occupied, choose another one", HttpStatus.BAD_REQUEST);
                 } else {
                     var newUser = user.get();
                     newUser.setName(request.getLogin());

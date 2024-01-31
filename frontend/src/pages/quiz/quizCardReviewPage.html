@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+	
+    <!-- Wspólne style -->
+	<link rel="stylesheet" href="../styles/common/common.css">
+
+	<!-- Style strony logowania -->
+    <link rel="stylesheet" href="../styles/quizPage/quizCardReviewPage.css">
+</head>
+<body>
+	<div class="logo">Przegląd fiszek</div>
+	<div class="main-container">
+		<div class="quiz-container">
+		</div>
+		<div >
+			<button class="button" id="returnToQuizPage">Powrót</button>
+		</div>
+	</div>
+	<div class="popup-background" style="display:none;"></div>
+	<div class="logOutPopup" style="display:none;">
+		<p>Sesja wygasła</p>
+		<button id="closeLogOutPopup">Wyloguj</button>
+	</div>	
+	<div class="quizFinishPopup" style="display:none;">
+		<p>Koniec Quizu!</p>
+		<button id="quizFinishPopup">Wróć do menu</button>
+	</div>
+	<script src="../script/quizPage/quizCardReviewPage.js"></script>
+</body>
+</html>

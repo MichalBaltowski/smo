@@ -28,21 +28,26 @@ app.get("/settings", (req, res) => {
 });
 
 app.get("/quizMain", (req, res) => {
-  const quizPagePath = path.join(__dirname, "src", "pages", "quiz", "quizMainPage.html");
-  res.sendFile(quizPagePath);
+  const pagePath = path.join(__dirname, "src", "pages", "quiz", "quizMainPage.html");
+  res.sendFile(pagePath);
 });
 
 app.get("/addCard", (req, res) => {
-  const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "addCardPage.html");
-  res.sendFile(addCardPagePath);
+  const pagePath = path.join(__dirname, "src", "pages", "quiz", "addCardPage.html");
+  res.sendFile(pagePath);
 });
 
 app.get("/quiz", (req, res) => {
-  const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "quizPage.html");
-  res.sendFile(addCardPagePath);
+  const pagePath = path.join(__dirname, "src", "pages", "quiz", "quizPage.html");
+  res.sendFile(pagePath);
 });
 
 app.get("/quizSettings", (req, res) => {
-  const addCardPagePath = path.join(__dirname, "src", "pages", "quiz", "quizSettings.html");
-  res.sendFile(addCardPagePath);
+  const pagePath = path.join(__dirname, "src", "pages", "quiz", "quizSettings.html");
+  res.sendFile(pagePath);
+});
+
+app.get("/quizCardReview", (req, res) => {
+  const pagePath = path.join(__dirname, "src", "pages", "quiz", "quizCardReviewPage.html");
+  res.sendFile(pagePath);
 });
